@@ -1,0 +1,68 @@
+.section {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-6);
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.content {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+}
+
+.description {
+  max-width: 44rem;
+  margin-top: 0;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.eyebrowOnly {
+  margin-bottom: 0;
+  color: var(--color-accent-dark);
+  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: 0;
+}
+
+.card {
+  padding: var(--space-5);
+}
+
+.cardTitle {
+  margin-bottom: var(--space-4);
+  color: var(--color-accent-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.list {
+  display: grid;
+  gap: var(--space-3);
+  padding-left: 1.2rem;
+}
+
+.item {
+  color: var(--color-muted);
+}
+
+@media (min-width: 960px) {
+  .layout {
+    grid-template-columns: 1.35fr minmax(18rem, 24rem);
+  }
+}

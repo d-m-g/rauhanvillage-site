@@ -1,0 +1,32 @@
+.section {
+  padding: var(--space-8) 0;
+}
+
+.default {
+  background: var(--color-surface);
+}
+
+.solidBlue {
+  background: linear-gradient(180deg, #0055a5 0%, #00b9f7 100%);
+}
+
+.solidGreen {
+  background: linear-gradient(180deg, #0055a5 0%, #00b9f7 100%);
+}
+
+.accent {
+  position: relative;
+}
+
+.accent::before {
+  content: "";
+  position: absolute;
+  inset: var(--space-5) 0;
+  background: var(--color-surface-soft);
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.accent > * {
+  position: relative;
+}

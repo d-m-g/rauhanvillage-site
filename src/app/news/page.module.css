@@ -1,0 +1,15 @@
+.heading {
+  margin-bottom: var(--space-5);
+}
+
+.placeholder {
+  max-width: 36rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.link {
+  color: var(--color-accent-dark);
+  font-weight: 600;
+  text-decoration: underline;
+}

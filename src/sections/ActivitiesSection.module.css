@@ -1,0 +1,51 @@
+.heading {
+  margin-bottom: var(--space-7);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.card {
+  padding: var(--space-5);
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: var(--space-3);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 107, 195, 0.1);
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin-bottom: var(--space-2);
+  color: var(--color-ink);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.text {
+  color: var(--color-muted);
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
