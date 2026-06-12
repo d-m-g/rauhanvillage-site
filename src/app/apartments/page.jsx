@@ -1,71 +1,145 @@
-import BookingCtaSection from "../../sections/BookingCtaSection";
-import PageHero from "../../sections/PageHero";
-import Section from "../../components/Section";
-import Heading from "../../components/Heading";
-import Card from "../../components/Card";
 import Button from "../../components/Button";
-import { apartments, apartmentFeatures } from "../../lib/content";
+import Reveal from "../../components/Reveal";
+import ApartHotelGallery from "../../sections/ApartHotelGallery";
+import BookingCtaSection from "../../sections/BookingCtaSection";
+import {
+  apartHotelGallery,
+  apartHotelIntro,
+  apartHotelRoomSpecs,
+  apartHotelTypes,
+} from "../../lib/content";
 import { createPageMetadata } from "../../lib/seo";
 import styles from "./page.module.css";
 
 export const metadata = createPageMetadata({
-  title: "Apartments",
+  title: "Apart-Hotel",
   description:
-    "10 fully equipped two-bedroom apartments in a peaceful forest setting, 300 m from Lake Saimaa. Standard and Lux options available.",
+    "Hotel offers 4 types of two-bedroom apartments for 4 or 5 people, with and without pets. Fully equipped kitchen, private entrance, 300 m from Lake Saimaa.",
   path: "/apartments",
 });
+
+function ApartmentTypeCard({ type, index }) {
+  const petsLabel = type.petsAllowed ? "Pets allowed" : "Pets not allowed";
+
+  return (
+    <Reveal
+      as="article"
+      className={styles.typeCard}
+      delay={index * 80}
+      variant="up"
+    >
+      <div className={styles.typeHeader}>
+        <span className={styles.typeCapacity}>{type.capacity} guests</span>
+        <span
+          className={styles.typeBadge}
+          data-pets={type.petsAllowed}
+        >
+          {petsLabel}
+        </span>
+      </div>
+      <h3 className={styles.typeTitle}>
+        2-bedroom apartment for {type.capacity} people
+      </h3>
+      <p className={styles.typeBeds}>{type.beds}</p>
+      <ul className={styles.typeList}>
+        {type.extras.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </Reveal>
+  );
+}
 
 export default function ApartmentsPage() {
   return (
     <main>
-      <PageHero
-        eyebrow="Where you stay"
-        title="Our apartments"
-        description="Rauhan Marinella Village offers 10 spacious apartment-style accommodations in the forest, just 300 m from Lake Saimaa. All apartments have a separate entrance, 2 bedrooms, and a fully equipped kitchen."
-        stats={[
-          "10 apartments available",
-          "2 bedrooms per apartment",
-          "Private entrance per unit",
-          "Final cleaning included",
-        ]}
-        primaryCta={{ label: "Book Now", href: "/contact" }}
-      />
+      {/* Hero */}
+      <section className={styles.hero}>
+        <Reveal immediate variant="up">
+          <div className={styles.heroInner}>
+            <h1 className={styles.heroTitle}>Apart-Hotel</h1>
+            <p className={styles.heroLead}>
+              Hotel offers 4 types of apartments for 4 or 5 people (with and
+              without pets).
+            </p>
+            <Button className={styles.heroBtn} href="/contact">
+              Book a Room
+            </Button>
+          </div>
+        </Reveal>
+      </section>
 
-      <Section>
-        <Heading align="center" as="h2" className={styles.heading} eyebrow="Apartment types">
-          Choose your apartment
-        </Heading>
-        <div className={styles.grid}>
-          {apartments.map((apt) => (
-            <Card as="article" className={styles.card} key={apt.title}>
-              <h3 className={styles.title}>{apt.title}</h3>
-              <p className={styles.body}>{apt.description}</p>
-              <ul className={styles.list}>
-                {apt.features.map((f) => (
-                  <li className={styles.listItem} key={f}>
-                    {f}
-                  </li>
+      {/* Gallery */}
+      <section className={styles.gallerySection}>
+        <div className={styles.container}>
+          <Reveal variant="fade">
+            <ApartHotelGallery images={apartHotelGallery} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Intro + policies */}
+      <section className={styles.introSection}>
+        <div className={styles.container}>
+          <Reveal variant="up">
+            <div className={styles.introCard}>
+              <h2 className={styles.sectionTitle}>About our apartments</h2>
+              <ul className={styles.introList}>
+                {apartHotelIntro.map((item) => (
+                  <li key={item}>{item}</li>
                 ))}
               </ul>
-              <Button href={apt.ctaHref}>{apt.ctaLabel}</Button>
-            </Card>
-          ))}
-        </div>
-      </Section>
-
-      <Section tone="accent">
-        <Heading align="center" as="h2" className={styles.heading} eyebrow="All apartments include">
-          Standard features
-        </Heading>
-        <div className={styles.featuresGrid}>
-          {apartmentFeatures.map((f) => (
-            <div className={styles.feature} key={f}>
-              <span className={styles.featureDot} aria-hidden="true" />
-              <span>{f}</span>
             </div>
-          ))}
+          </Reveal>
         </div>
-      </Section>
+      </section>
+
+      {/* Room specifications */}
+      <section className={styles.specsSection}>
+        <div className={styles.container}>
+          <Reveal variant="fade">
+            <p className={styles.eyebrow}>What&apos;s inside</p>
+            <h2 className={styles.sectionTitle}>Room &amp; amenities</h2>
+          </Reveal>
+          <div className={styles.specsGrid}>
+            {apartHotelRoomSpecs.map((spec, index) => (
+              <Reveal
+                as="article"
+                className={styles.specCard}
+                delay={index * 60}
+                key={spec.title}
+                variant="up"
+              >
+                <h3 className={styles.specTitle}>{spec.title}</h3>
+                <ul className={styles.specList}>
+                  {spec.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Apartment types */}
+      <section className={styles.typesSection}>
+        <div className={styles.container}>
+          <Reveal variant="fade">
+            <p className={styles.eyebrow}>Choose your layout</p>
+            <h2 className={styles.sectionTitle}>Apartment types</h2>
+            <p className={styles.sectionLead}>
+              Four configurations to match your group size and whether you travel
+              with pets.
+            </p>
+          </Reveal>
+          <div className={styles.typesGrid}>
+            {apartHotelTypes.map((type, index) => (
+              <ApartmentTypeCard index={index} key={`${type.capacity}-${type.petsAllowed}`} type={type} />
+            ))}
+          </div>
+        </div>
+      </section>
 
       <BookingCtaSection />
     </main>

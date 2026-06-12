@@ -51,6 +51,107 @@ export const hotelAboutRight = [
   "Sauna and a large celebration hall with a kitchen could be rented for an extra charge.",
 ];
 
+export const apartHotelGallery = [
+  { src: "/assets/apartments/bedroom-1.jpg", alt: "Bedroom with twin beds" },
+  { src: "/assets/apartments/living-room.jpg", alt: "Living and dining area" },
+  { src: "/assets/apartments/bathroom.jpg", alt: "Bathroom with shower" },
+  { src: "/assets/apartments/bedroom-2.jpg", alt: "Second bedroom with bunk bed" },
+  { src: "/assets/apartments/kitchen.jpg", alt: "Fully equipped kitchen" },
+  { src: "/assets/apartments/dining.jpg", alt: "Dining area" },
+];
+
+export const apartHotelIntro = [
+  "All apartments consist of two bedrooms, a living room with a fully equipped kitchen, and a bathroom with a toilet and two showers.",
+  "Final cleaning is included in the price.",
+  "The upper floor is accessible by stairs only. You may choose the floor in your booking request (based on availability).",
+  "Smoking is strictly prohibited in all apartments.",
+  "Pets are allowed only in 2 apartments (by request) for an extra charge.",
+  "Extra beds and baby cots are possible by request for an extra charge (based on availability).",
+  "It is possible to rent linen for an extra charge (10 euro per set).",
+];
+
+export const apartHotelRoomSpecs = [
+  {
+    title: "Bedroom 1",
+    items: [
+      "2 single beds (could be put together or separate) or 1 single and 1 bunk bed",
+      "Large wardrobe",
+      "Socket near the bed",
+    ],
+  },
+  {
+    title: "Bedroom 2",
+    items: [
+      "2 single beds (could be put together or separate)",
+      "Large wardrobe",
+      "Socket near the bed",
+    ],
+  },
+  {
+    title: "Bathroom",
+    items: ["Toilet", "2 showers", "Sink", "Hair dryer"],
+  },
+  {
+    title: "Kitchen and dining area",
+    items: [
+      "Dining table",
+      "Stovetop",
+      "Microwave",
+      "Refrigerator",
+      "Coffee maker",
+      "Electric kettle",
+      "Dishes and cooking facilities",
+    ],
+  },
+  {
+    title: "Seating area",
+    items: ["Sofa", "Satellite channels", "Flat-screen TV"],
+  },
+  {
+    title: "Each apartment has",
+    items: ["Private entrance", "Mosquito nets on the windows"],
+  },
+];
+
+export const apartHotelTypes = [
+  {
+    capacity: 4,
+    petsAllowed: true,
+    beds: "4 single beds (could be put together or separate)",
+    extras: [
+      "Baby cot for extra price — 20 euro per stay",
+      "Pets for extra price — 20 euro per stay",
+    ],
+  },
+  {
+    capacity: 4,
+    petsAllowed: false,
+    beds: "4 single beds (could be put together or separate)",
+    extras: [
+      "Baby cot for extra price — 20 euro per stay",
+      "Pets are not allowed",
+    ],
+  },
+  {
+    capacity: 5,
+    petsAllowed: true,
+    beds: "3 single beds and 1 bunk bed for 2 people",
+    extras: [
+      "Baby cot for extra price — 20 euro per stay",
+      "Pets for extra price — 20 euro per stay",
+    ],
+  },
+  {
+    capacity: 5,
+    petsAllowed: false,
+    beds: "4 single beds in bedrooms and a sofa bed in the living room",
+    extras: [
+      "Baby cot for extra price — 20 euro per stay",
+      "Pets are not allowed",
+    ],
+  },
+];
+
 export const apartmentFeatures = [
   "2 bedrooms and a living room",
   "Fully equipped kitchen (microwave, stovetop, fridge, kettle, coffee maker)",
