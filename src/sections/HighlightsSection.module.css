@@ -12,7 +12,7 @@
 /* ── Blue sidebar ── */
 .sidebar {
   background: linear-gradient(180deg, #006bc3 0%, #0055a5 100%);
-  padding: var(--space-7) var(--space-6);
+  padding: var(--space-7) calc(var(--space-6) * 2);
 }
 
 .highlightList {
@@ -88,7 +88,7 @@
 
 /* ── White main content ── */
 .main {
-  padding: var(--space-7) var(--space-7);
+  padding: var(--space-7) calc(var(--space-7) * 2);
   background: var(--color-surface);
 }
 
@@ -128,7 +128,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-5);
-  width: min(var(--container-width), calc(100% - 3rem));
+  width: min(var(--container-width), calc(100% - var(--page-gutter)));
   margin: 0 auto;
   padding: var(--space-5) 0;
 }
@@ -168,11 +168,11 @@
   }
 
   .sidebar {
-    padding: var(--space-6) var(--space-5);
+    padding: var(--space-6) calc(var(--space-5) * 2);
   }
 
   .main {
-    padding: var(--space-6) var(--space-5);
+    padding: var(--space-6) calc(var(--space-5) * 2);
   }
 
   .columns {

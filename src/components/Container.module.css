@@ -1,10 +1,10 @@
 .container {
-  width: min(var(--container-width), calc(100% - 2rem));
+  width: min(var(--container-width), calc(100% - var(--page-gutter-sm)));
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .container {
-    width: min(var(--container-width), calc(100% - 3rem));
+    width: min(var(--container-width), calc(100% - var(--page-gutter)));
   }
 }

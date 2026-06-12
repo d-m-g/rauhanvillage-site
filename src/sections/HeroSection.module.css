@@ -5,7 +5,7 @@
 }
 
 .textContent {
-  width: min(var(--container-width), calc(100% - 3rem));
+  width: min(var(--container-width), calc(100% - var(--page-gutter)));
   margin: 0 auto;
 }
 
