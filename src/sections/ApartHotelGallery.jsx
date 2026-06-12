@@ -7,8 +7,8 @@ import styles from "./ApartHotelGallery.module.css";
 const AUTO_INTERVAL = 5500;
 const SCROLL_MS = 1100;
 const VISIBLE = 4;
-const SLIDE_WIDTH = 270;
-const SLIDE_HEIGHT = 158;
+const SLIDE_WIDTH = 320;
+const SLIDE_HEIGHT = 240;
 const HOVER_SCALE = 1.36;
 
 function isSlideVisible(slideIndex, currentIndex) {
@@ -75,16 +75,16 @@ export default function ApartHotelGallery({ images }) {
 
   return (
     <div
-      className={styles.gallery}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      style={{
-        "--total": loopedTotal,
-        "--visible": VISIBLE,
-        "--hover-scale": HOVER_SCALE,
-        "--scroll-ms": `${SCROLL_MS}ms`,
-      }}
-    >
+        className={styles.gallery}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        style={{
+          "--total": loopedTotal,
+          "--visible": VISIBLE,
+          "--hover-scale": HOVER_SCALE,
+          "--scroll-ms": `${SCROLL_MS}ms`,
+        }}
+      >
       <div className={styles.viewport}>
         <div
           className={styles.track}

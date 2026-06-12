@@ -41,6 +41,10 @@
   overflow: visible;
 }
 
+.gallerySection .sectionTitle {
+  margin-bottom: var(--space-2);
+}
+
 /* ── Intro ── */
 .introSection {
   padding: var(--space-5) 0 var(--space-7);

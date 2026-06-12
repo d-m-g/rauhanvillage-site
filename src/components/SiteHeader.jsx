@@ -24,6 +24,9 @@ export default function SiteHeader() {
     if (href === "/") {
       return pathname === "/";
     }
+    if (href === "/apartments") {
+      return pathname === "/apartments";
+    }
     return pathname === href || pathname.startsWith(href + "/");
   }
 

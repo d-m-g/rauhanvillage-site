@@ -69,6 +69,8 @@ export default function ApartmentsPage() {
       <section className={styles.gallerySection}>
         <div className={styles.container}>
           <Reveal variant="fade">
+            <p className={styles.eyebrow}>Gallery</p>
+            <h2 className={styles.sectionTitle}>Photo gallery</h2>
             <ApartHotelGallery images={apartHotelGallery} />
           </Reveal>
         </div>

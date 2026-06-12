@@ -26,6 +26,8 @@ export default function ApartmentDetailLayout({
   title,
   lead,
   gallery = [],
+  galleryEyebrow = "Gallery",
+  galleryTitle = "Photo gallery",
   intro = [],
   roomSpecs = [],
   roomSpecColumns = null,
@@ -51,6 +53,8 @@ export default function ApartmentDetailLayout({
         <section className={styles.gallerySection}>
           <div className={styles.container}>
             <Reveal variant="fade">
+              <p className={styles.eyebrow}>{galleryEyebrow}</p>
+              <h2 className={styles.sectionTitle}>{galleryTitle}</h2>
               <ApartHotelGallery images={gallery} />
             </Reveal>
           </div>
