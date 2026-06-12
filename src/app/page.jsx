@@ -5,12 +5,20 @@ import HomepageServicesSection from "../sections/HomepageServicesSection";
 import ReviewsSection from "../sections/ReviewsSection";
 import { createPageMetadata } from "../lib/seo";
 
-export const metadata = createPageMetadata({
-  title: "Home",
+const homeTitle = "Rauhan Village | Apart Hotel in Rauha";
+const homeMetadata = createPageMetadata({
+  title: "Apart Hotel in Rauha",
   description:
     "Rauhan Marinella Village Hotel — apart-hotel in Rauha, Finland. 10 apartments, 300 m from Lake Saimaa. Families and groups welcome.",
   path: "/",
 });
+
+export const metadata = {
+  ...homeMetadata,
+  title: { absolute: homeTitle },
+  openGraph: { ...homeMetadata.openGraph, title: homeTitle },
+  twitter: { ...homeMetadata.twitter, title: homeTitle },
+};
 
 export default function HomePage() {
   return (
