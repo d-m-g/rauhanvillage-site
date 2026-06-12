@@ -1,4 +1,3 @@
-import Button from "../../components/Button";
 import Reveal from "../../components/Reveal";
 import ApartHotelGallery from "../../sections/ApartHotelGallery";
 import BookingCtaSection from "../../sections/BookingCtaSection";
@@ -62,9 +61,6 @@ export default function ApartmentsPage() {
               Hotel offers 4 types of apartments for 4 or 5 people (with and
               without pets).
             </p>
-            <Button className={styles.heroBtn} href="/contact">
-              Book a Room
-            </Button>
           </div>
         </Reveal>
       </section>
@@ -122,6 +118,11 @@ export default function ApartmentsPage() {
         </div>
       </section>
 
+      <BookingCtaSection
+        buttonLabel="Book a Room"
+        heading="Ready to book your stay?"
+      />
+
       {/* Apartment types */}
       <section className={styles.typesSection}>
         <div className={styles.container}>
@@ -140,8 +141,6 @@ export default function ApartmentsPage() {
           </div>
         </div>
       </section>
-
-      <BookingCtaSection />
     </main>
   );
 }

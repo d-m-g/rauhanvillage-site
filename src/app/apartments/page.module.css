@@ -26,25 +26,12 @@
 }
 
 .heroLead {
-  margin: 0 0 var(--space-5);
+  margin: 0;
   padding-left: calc(var(--space-5) + 5px);
   max-width: 36rem;
   font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.65;
-}
-
-.heroBtn {
-  margin-left: calc(var(--space-5) + 5px);
-  background: #ffffff !important;
-  border-color: #ffffff !important;
-  color: var(--color-accent-dark) !important;
-}
-
-.heroBtn:hover {
-  background: var(--color-accent-dark) !important;
-  border-color: var(--color-accent-dark) !important;
-  color: #ffffff !important;
 }
 
 /* ── Gallery ── */
@@ -114,6 +101,25 @@
   display: grid;
   gap: var(--space-4);
   margin-top: var(--space-6);
+}
+
+.specsColumns {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  align-items: stretch;
+}
+
+.specColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.specColumn .specCard {
+  flex: 1;
 }
 
 .specCard {
@@ -238,6 +244,12 @@
   color: var(--color-muted);
   font-size: 0.88rem;
   line-height: 1.55;
+}
+
+@media (max-width: 899px) {
+  .specsColumns {
+    flex-direction: column;
+  }
 }
 
 @media (min-width: 640px) {

@@ -152,6 +152,125 @@ export const apartHotelTypes = [
   },
 ];
 
+export const lux3Gallery = [];
+
+export const lux3Intro = [
+  "Apartment is located right opposite the Holiday Club Saimaa Hotel and Aquapark, and in 900 m from the Rauhan Marinella Village Hotel. Apartment is situated on the 2nd floor and accessible by stairs only.",
+  "It is possible to rent a WiFi router for an extra charge.",
+  "Smoking is not allowed in the apartment.",
+  "Pets are allowed in the apartment for an extra charge.",
+  "Apartment has a private balcony with lake view and private sauna.",
+  "It is possible to rent linen for an extra charge (10 euro per set).",
+];
+
+export const lux3RoomSpecColumns = [
+  [
+    {
+      title: "Bedroom 1",
+      items: ["1 double bed", "Large wardrobe"],
+    },
+    {
+      title: "Bedroom 2",
+      items: ["2 single beds", "Large wardrobe"],
+    },
+    {
+      title: "Bedroom 3",
+      items: ["1 double sofa-bed (140×200)", "Large wardrobe"],
+    },
+  ],
+  [
+    {
+      title: "Kitchen and dining area",
+      items: [
+        "Dining table",
+        "Stovetop",
+        "Oven",
+        "Microwave",
+        "Refrigerator",
+        "Coffee maker",
+        "Electric kettle",
+        "Dish washing machine",
+        "Dishes and cooking facilities",
+      ],
+    },
+  ],
+  [
+    {
+      title: "Bathroom 1",
+      items: ["Toilet", "Sink"],
+    },
+    {
+      title: "Bathroom 2",
+      items: [
+        "Toilet",
+        "Shower",
+        "Sink",
+        "Hair dryer",
+        "Sauna",
+        "Washing machine",
+        "Drying machine",
+      ],
+    },
+    {
+      title: "Seating area",
+      items: ["Sofa-bed", "Flat-screen TV"],
+    },
+  ],
+];
+
+export const lux1Gallery = [];
+
+export const lux1Intro = [
+  "Apartment is located right opposite the Holiday Club Saimaa Hotel and Aquapark, and in 900 m from the Rauhan Marinella Village Hotel. Apartment is situated on the 2nd floor and accessible by stairs only.",
+  "It is possible to rent a WiFi router for an extra charge.",
+  "Smoking is not allowed in the apartment.",
+  "Pets are allowed in the apartment for an extra charge.",
+  "Apartment has a private balcony with lake view and private sauna.",
+  "It is possible to rent linen for an extra charge (10 euro per set).",
+];
+
+export const lux1RoomSpecColumns = [
+  [
+    {
+      title: "Bedroom",
+      items: ["1 double bed", "Large wardrobe"],
+    },
+    {
+      title: "Seating area",
+      items: ["Sofa-bed (could be used as a double bed)", "Flat-screen TV"],
+    },
+  ],
+  [
+    {
+      title: "Kitchen and dining area",
+      items: [
+        "Dining table",
+        "Stovetop",
+        "Oven",
+        "Microwave",
+        "Refrigerator",
+        "Coffee maker",
+        "Electric kettle",
+        "Dish washing machine",
+        "Dishes and cooking facilities",
+      ],
+    },
+  ],
+  [
+    {
+      title: "Bathroom",
+      items: [
+        "Toilet",
+        "Shower",
+        "Sink",
+        "Hair dryer",
+        "Sauna",
+        "Washing machine",
+      ],
+    },
+  ],
+];
+
 export const apartmentFeatures = [
   "2 bedrooms and a living room",
   "Fully equipped kitchen (microwave, stovetop, fridge, kettle, coffee maker)",
