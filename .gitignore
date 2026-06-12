@@ -4,4 +4,4 @@ node_modules
 .next
 out
 .cursor
-assets/
+/assets
