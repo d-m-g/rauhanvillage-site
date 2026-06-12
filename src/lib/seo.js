@@ -3,7 +3,7 @@ const siteUrl = "https://rauhanvillage.com";
 export const defaultMetadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Rauhan Marinella Village Hotel",
+    default: "Rauhan Village | Apart Hotel in Rauha",
     template: "%s | Rauhan Village",
   },
   description:

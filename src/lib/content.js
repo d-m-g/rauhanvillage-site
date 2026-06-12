@@ -9,25 +9,46 @@ export const contactInfo = {
 
 export const hotelHighlights = [
   {
-    title: "Great for families with children",
+    title: "Great place for families with children",
     description:
-      "Each apartment has a separate entrance, kitchen, and two bedrooms. Baby cot and baby chair available by request.",
+      "Each apartment has a separate entrance, kitchen, and two bedrooms. Baby cot and baby chair are available by request.",
   },
   {
     title: "Groups are welcome",
     description:
-      "The best place for camps and group accommodation. A large dining and meeting hall is available for all types of group activities.",
+      "Best place for camps accommodation! Large dining and meeting hall is available for all types of group activities.",
   },
   {
-    title: "Activities within walking distance",
+    title: "Wide range of activities in the walking distance",
     description:
-      "Aquapark, Rope Activity Park, bowling, golf, tennis, bike rental, ski trails, and more are all within 2 km.",
+      "Aquapark, Rope Activity Park, bowling, golf, tennis, bike rental, ski trails, and more are located in the walking distance from the hotel.",
+    link: { href: "/activities", label: "Activities" },
   },
   {
-    title: "Discounted aquapark tickets",
+    title: "Discounted tickets to Aquapark",
     description:
-      "Our guests can purchase tickets with up to 50% discount to Holiday Club Saimaa Aquapark, located just 900 m away.",
+      "Our guests can purchase tickets with discount up to 50% to the Aquapark located 900 m from the hotel.",
   },
+];
+
+export const hotelAboutLeft = [
+  {
+    text: "Hotel Rauhan Marinella Village is situated just 300 m from Lake Saimaa in the surrounding forest.",
+    bold: "Hotel Rauhan Marinella Village",
+  },
+  "The property is situated just 900 m from Holiday Club Saimaa Aquapark and Spa and a sandy beach on Lake Saimaa.",
+  "There are many activities available for all ages within 2 km including a rope activity course Atreenalin Park, bowling, Angry Birds Activity Park, rentals for skiing, cycling, boating, off-terrain, and more. There is a tennis court located 900 m away from the property and Imatra Golf Club within 3 km. Guests will find several hiking and cross-country skiing trails near the hotel.",
+  "The location is 10 minutes drive from central Imatra and half an hour drive from Lappeenranta.",
+];
+
+export const hotelAboutRight = [
+  {
+    text: "All 10 apartments of Rauhan Marinella Village have 2 bedrooms, a living room with a fully equipped kitchen with a microwave, a stovetop, a fridge, kettle, and coffee-making facilities. The bathroom is equipped with a toilet, sink, and 2 showers. You may find a sofa and TV with cable channels in the living room.",
+    bold: "Rauhan Marinella Village",
+  },
+  "All cooking facilities and final cleaning are included in the price.",
+  "The hotel features barbecue facilities free of charge and a picturesque terrace. Private parking is available on site free of charge.",
+  "Sauna and a large celebration hall with a kitchen could be rented for an extra charge.",
 ];
 
 export const apartmentFeatures = [

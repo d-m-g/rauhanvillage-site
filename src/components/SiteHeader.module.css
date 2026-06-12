@@ -182,6 +182,10 @@
   margin-left: auto;
   flex-shrink: 0;
   font-family: var(--font-button);
+  min-height: 2.4rem !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.08em !important;
 }
 
 @media (max-width: 720px) {

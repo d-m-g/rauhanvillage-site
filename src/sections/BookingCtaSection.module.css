@@ -1,36 +1,52 @@
 .section {
   background: linear-gradient(180deg, #30a7f2 0%, #004da0 100%);
-  padding: var(--space-8) 0;
+  padding: var(--space-4) 0;
 }
 
 .container {
   width: min(var(--container-width), calc(100% - 3rem));
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: var(--space-6);
+  justify-content: center;
+  gap: var(--space-5);
   text-align: center;
 }
 
 .heading {
+  margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.1;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .btn {
   background: #ffffff !important;
   border-color: #ffffff !important;
   color: var(--color-accent-dark) !important;
-  font-size: 0.9rem;
-  padding: 0.9rem 2.5rem;
+  font-size: 0.82rem !important;
+  min-height: 2.4rem !important;
+  padding: 0.5rem 1.5rem !important;
+  flex-shrink: 0;
 }
 
 .btn:hover {
   background: var(--color-accent-dark) !important;
   border-color: var(--color-accent-dark) !important;
   color: #ffffff !important;
+}
+
+@media (max-width: 520px) {
+  .container {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .heading {
+    white-space: normal;
+  }
 }

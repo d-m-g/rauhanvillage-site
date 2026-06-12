@@ -1,127 +1,180 @@
 .section {
-  background: #006bc3;
-  color: #ffffff;
+  background: var(--color-surface);
 }
 
-/* ── 4-column blurbs ── */
-.blurbs {
+/* ── Main split layout ── */
+.layout {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  width: min(var(--container-width), calc(100% - 3rem));
-  margin: 0 auto;
-  padding: var(--space-8) 0;
+  grid-template-columns: minmax(280px, 34%) 1fr;
+  min-height: 0;
+}
+
+/* ── Blue sidebar ── */
+.sidebar {
+  background: linear-gradient(180deg, #006bc3 0%, #0055a5 100%);
+  padding: var(--space-7) var(--space-6);
+}
+
+.highlightList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-6);
 }
 
-.blurb {
+.highlightItem {
+  display: flex;
+  gap: var(--space-3);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.highlightItem:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.marker {
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.4;
+  letter-spacing: -0.05em;
+}
+
+.highlightBody {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding-right: var(--space-4);
+  gap: var(--space-2);
 }
 
-.iconWrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  flex-shrink: 0;
-}
-
-.iconWrap svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  fill: #ffffff;
-}
-
-.blurbTitle {
+.highlightTitle {
+  margin: 0;
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
-.blurbText {
+.highlightText {
+  margin: 0;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.88);
   line-height: 1.7;
 }
 
-/* ── About strip (description + CTA) ── */
-.about {
+.inlineLink {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.inlineLink:hover {
+  color: var(--color-accent-light);
+}
+
+/* ── White main content ── */
+.main {
+  padding: var(--space-7) var(--space-7);
+  background: var(--color-surface);
+}
+
+.columns {
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-7);
-  width: min(var(--container-width), calc(100% - 3rem));
-  margin: 0 auto;
-  padding: var(--space-7) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.aboutText {
-  display: grid;
-  gap: var(--space-3);
-}
-
-.aboutText p {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.75;
-}
-
-.aboutCta {
+.column {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: var(--space-4);
-  text-align: center;
-  flex-shrink: 0;
-  max-width: 18rem;
+}
+
+.column p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.column strong {
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+/* ── Bottom CTA bar ── */
+.ctaBar {
+  background: #0a0f1a;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ctaInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  width: min(var(--container-width), calc(100% - 3rem));
+  margin: 0 auto;
+  padding: var(--space-5) 0;
 }
 
 .ctaTagline {
+  margin: 0;
   font-family: var(--font-heading);
-  font-size: 1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   font-weight: 600;
   color: #ffffff;
   line-height: 1.4;
 }
 
 .ctaBtn {
-  background: #ffffff !important;
-  border-color: #ffffff !important;
-  color: var(--color-accent-dark) !important;
-  white-space: nowrap;
+  background: transparent !important;
+  border-color: var(--color-accent) !important;
+  color: var(--color-accent-light) !important;
+  flex-shrink: 0;
 }
 
 .ctaBtn:hover {
-  background: var(--color-accent-dark) !important;
-  border-color: var(--color-accent-dark) !important;
+  background: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
   color: #ffffff !important;
 }
 
-@media (max-width: 1024px) {
-  .blurbs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 720px) {
-  .blurbs {
+  .sidebar {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .main {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .columns {
     grid-template-columns: 1fr;
     gap: var(--space-5);
   }
+}
 
-  .about {
-    grid-template-columns: 1fr;
+@media (max-width: 600px) {
+  .ctaInner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
   }
 
-  .aboutCta {
-    max-width: 100%;
+  .column p {
+    text-align: left;
   }
 }

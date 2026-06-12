@@ -8,11 +8,13 @@ import Container from "./Container";
 import styles from "./SiteHeader.module.css";
 
 const navItems = [
-  { href: "/apartments", label: "Apartments" },
+  { href: "/apartments", label: "Apart-Hotel" },
+  { href: "/apartments/lux-3", label: "Lux Apartments 3" },
+  { href: "/apartments/lux-1", label: "Lux Apartments 1" },
   { href: "/activities", label: "Activities" },
   { href: "/services", label: "Services" },
   { href: "/photos", label: "Photos" },
-  { href: "/news", label: "News" },
+  { href: "/contact", label: "Contact us" },
 ];
 
 export default function SiteHeader() {
