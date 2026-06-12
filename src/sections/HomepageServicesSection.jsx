@@ -1,3 +1,4 @@
+import Reveal from "../components/Reveal";
 import styles from "./HomepageServicesSection.module.css";
 
 const serviceItems = [
@@ -68,14 +69,20 @@ export default function HomepageServicesSection() {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.grid}>
-          {serviceItems.map((item) => (
-            <article className={styles.item} key={item.title}>
+          {serviceItems.map((item, index) => (
+            <Reveal
+              as="article"
+              className={styles.item}
+              delay={index * 70}
+              key={item.title}
+              variant="up"
+            >
               <div className={styles.iconWrap}>{item.icon}</div>
               <div className={styles.body}>
                 <h3 className={styles.title}>{item.title}</h3>
                 <p className={styles.text}>{item.description}</p>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

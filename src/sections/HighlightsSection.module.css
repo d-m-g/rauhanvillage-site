@@ -29,6 +29,11 @@
   gap: var(--space-3);
   padding-bottom: var(--space-6);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.25s ease;
+}
+
+.highlightItem:hover {
+  transform: translateX(4px);
 }
 
 .highlightItem:last-child {
@@ -73,10 +78,12 @@
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .inlineLink:hover {
   color: var(--color-accent-light);
+  opacity: 0.9;
 }
 
 /* ── White main content ── */
@@ -146,6 +153,13 @@
   background: var(--color-accent) !important;
   border-color: var(--color-accent) !important;
   color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .highlightItem:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 960px) {

@@ -1,3 +1,4 @@
+import Reveal from "../components/Reveal";
 import { guestReviews } from "../lib/content";
 import styles from "./ReviewsSection.module.css";
 
@@ -11,11 +12,19 @@ export default function ReviewsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <p className={styles.eyebrow}>Guest reviews</p>
-        <h2 className={styles.heading}>What our guests say</h2>
+        <Reveal variant="fade">
+          <p className={styles.eyebrow}>Guest reviews</p>
+          <h2 className={styles.heading}>What our guests say</h2>
+        </Reveal>
         <div className={styles.grid}>
-          {guestReviews.map((review) => (
-            <blockquote className={styles.card} key={review.author}>
+          {guestReviews.map((review, index) => (
+            <Reveal
+              as="blockquote"
+              className={styles.card}
+              delay={index * 120}
+              key={review.author}
+              variant="scale"
+            >
               <div className={styles.stars} aria-label="5 stars">
                 {[...Array(5)].map((_, i) => (
                   <StarIcon key={i} />
@@ -26,7 +35,7 @@ export default function ReviewsSection() {
                 <span className={styles.name}>{review.author}</span>
                 <span className={styles.country}>{review.country}</span>
               </footer>
-            </blockquote>
+            </Reveal>
           ))}
         </div>
       </div>

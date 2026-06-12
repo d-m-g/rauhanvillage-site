@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Button from "../components/Button";
+import Reveal from "../components/Reveal";
 import {
   hotelAboutLeft,
   hotelAboutRight,
@@ -26,11 +27,16 @@ export default function HighlightsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.layout}>
-        {/* Left — blue highlight sidebar */}
         <aside className={styles.sidebar}>
           <ul className={styles.highlightList}>
-            {hotelHighlights.map((item) => (
-              <li className={styles.highlightItem} key={item.title}>
+            {hotelHighlights.map((item, index) => (
+              <Reveal
+                as="li"
+                className={styles.highlightItem}
+                delay={index * 90}
+                key={item.title}
+                variant="left"
+              >
                 <span className={styles.marker} aria-hidden="true">
                   ››
                 </span>
@@ -50,39 +56,45 @@ export default function HighlightsSection() {
                     ) : null}
                   </p>
                 </div>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </aside>
 
-        {/* Right — white two-column about */}
         <div className={styles.main}>
           <div className={styles.columns}>
-            <div className={styles.column}>
+            <Reveal className={styles.column} delay={100} variant="up">
               {hotelAboutLeft.map((item) => (
-                <AboutParagraph item={item} key={typeof item === "string" ? item : item.text} />
+                <AboutParagraph
+                  item={item}
+                  key={typeof item === "string" ? item : item.text}
+                />
               ))}
-            </div>
-            <div className={styles.column}>
+            </Reveal>
+            <Reveal className={styles.column} delay={200} variant="up">
               {hotelAboutRight.map((item) => (
-                <AboutParagraph item={item} key={typeof item === "string" ? item : item.text} />
+                <AboutParagraph
+                  item={item}
+                  key={typeof item === "string" ? item : item.text}
+                />
               ))}
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>
 
-      {/* Bottom — booking CTA bar */}
-      <div className={styles.ctaBar}>
-        <div className={styles.ctaInner}>
-          <p className={styles.ctaTagline}>
-            We always give the best prices for direct booking!
-          </p>
-          <Button href="/contact" className={styles.ctaBtn}>
-            Book a Room
-          </Button>
+      <Reveal variant="up">
+        <div className={styles.ctaBar}>
+          <div className={styles.ctaInner}>
+            <p className={styles.ctaTagline}>
+              We always give the best prices for direct booking!
+            </p>
+            <Button href="/contact" className={styles.ctaBtn}>
+              Book a Room
+            </Button>
+          </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
