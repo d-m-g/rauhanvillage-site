@@ -18,73 +18,106 @@ function isSlideVisible(slideIndex, currentIndex) {
 
 export default function ApartHotelGallery({ images }) {
   const trackRef = useRef(null);
+  const isWrappingRef = useRef(false);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
   const total = images.length;
-  const loopedImages = [...images, ...images];
+  const loopedImages = total > 0 ? [...images, ...images] : [];
   const loopedTotal = loopedImages.length;
 
   const goTo = useCallback((target) => {
+    if (total === 0) {
+      return;
+    }
+    isWrappingRef.current = false;
     setTransitionEnabled(true);
-    setIndex(target);
+    setIndex(target % total);
+  }, [total]);
+
+  const completeWrap = useCallback(() => {
+    setTransitionEnabled(false);
+    setIndex(0);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setTransitionEnabled(true);
+        isWrappingRef.current = false;
+      });
+    });
   }, []);
 
   useEffect(() => {
-    if (paused) {
+    if (paused || total === 0 || isWrappingRef.current) {
       return undefined;
     }
 
     const timer = setInterval(() => {
-      setIndex((current) => current + 1);
+      setIndex((current) => {
+        if (isWrappingRef.current || current >= total) {
+          return current;
+        }
+        return current + 1;
+      });
     }, AUTO_INTERVAL);
 
     return () => clearInterval(timer);
-  }, [paused]);
+  }, [paused, total]);
 
   useEffect(() => {
-    if (index !== total) {
+    if (total === 0 || index !== total) {
       return undefined;
     }
 
+    isWrappingRef.current = true;
     const track = trackRef.current;
     if (!track) {
+      completeWrap();
       return undefined;
     }
 
     function handleTransitionEnd(event) {
-      if (event.propertyName !== "transform") {
+      if (event.target !== track || event.propertyName !== "transform") {
         return;
       }
-
-      setTransitionEnabled(false);
-      setIndex(0);
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setTransitionEnabled(true);
-        });
-      });
+      completeWrap();
     }
 
+    const fallbackTimer = setTimeout(completeWrap, SCROLL_MS + 150);
+
     track.addEventListener("transitionend", handleTransitionEnd);
-    return () => track.removeEventListener("transitionend", handleTransitionEnd);
-  }, [index, total]);
+    return () => {
+      clearTimeout(fallbackTimer);
+      track.removeEventListener("transitionend", handleTransitionEnd);
+    };
+  }, [index, total, completeWrap]);
+
+  useEffect(() => {
+    if (total === 0) {
+      return;
+    }
+    if (index > total) {
+      completeWrap();
+    }
+  }, [index, total, completeWrap]);
+
+  if (total === 0) {
+    return null;
+  }
 
   const activeDot = index % total;
 
   return (
     <div
-        className={styles.gallery}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-        style={{
-          "--total": loopedTotal,
-          "--visible": VISIBLE,
-          "--hover-scale": HOVER_SCALE,
-          "--scroll-ms": `${SCROLL_MS}ms`,
-        }}
-      >
+      className={styles.gallery}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      style={{
+        "--total": loopedTotal,
+        "--visible": VISIBLE,
+        "--hover-scale": HOVER_SCALE,
+        "--scroll-ms": `${SCROLL_MS}ms`,
+      }}
+    >
       <div className={styles.viewport}>
         <div
           className={styles.track}

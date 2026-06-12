@@ -92,6 +92,25 @@ export default function ApartmentsPage() {
         </div>
       </section>
 
+      {/* Apartment types */}
+      <section className={styles.typesSection}>
+        <div className={styles.container}>
+          <Reveal variant="fade">
+            <p className={styles.eyebrow}>Choose your layout</p>
+            <h2 className={styles.sectionTitle}>Apartment types</h2>
+            <p className={styles.sectionLead}>
+              Four configurations to match your group size and whether you travel
+              with pets.
+            </p>
+          </Reveal>
+          <div className={styles.typesGrid}>
+            {apartHotelTypes.map((type, index) => (
+              <ApartmentTypeCard index={index} key={`${type.capacity}-${type.petsAllowed}`} type={type} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Room specifications */}
       <section className={styles.specsSection}>
         <div className={styles.container}>
@@ -124,25 +143,6 @@ export default function ApartmentsPage() {
         buttonLabel="Book a Room"
         heading="Ready to book your stay?"
       />
-
-      {/* Apartment types */}
-      <section className={styles.typesSection}>
-        <div className={styles.container}>
-          <Reveal variant="fade">
-            <p className={styles.eyebrow}>Choose your layout</p>
-            <h2 className={styles.sectionTitle}>Apartment types</h2>
-            <p className={styles.sectionLead}>
-              Four configurations to match your group size and whether you travel
-              with pets.
-            </p>
-          </Reveal>
-          <div className={styles.typesGrid}>
-            {apartHotelTypes.map((type, index) => (
-              <ApartmentTypeCard index={index} key={`${type.capacity}-${type.petsAllowed}`} type={type} />
-            ))}
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
