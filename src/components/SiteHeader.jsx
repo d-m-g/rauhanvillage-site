@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "./Button";
@@ -62,6 +63,13 @@ export default function SiteHeader() {
       <Container className={styles.inner}>
         <div className={styles.mainNavGroup}>
           <div className={styles.brandWrap}>
+            <Image
+              src="/assets/ICO.png"
+              alt="Rauhan Village logo"
+              width={48}
+              height={48}
+              className={styles.brandLogo}
+            />
             <Link
               className={styles.brand}
               data-active={pathname === "/"}
