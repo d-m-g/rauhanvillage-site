@@ -634,3 +634,79 @@ export const hotelStats = [
   "Children of all ages welcome",
   "Direct booking — best prices",
 ];
+
+export const photoFeatures = [
+  {
+    src: "/assets/photos/09-hotel-forest.jpg",
+    alt: "Rauhan Marinella Village exterior surrounded by Finnish forest",
+    caption: "The hotel & forest",
+  },
+  {
+    src: "/assets/photos/10-hotel-aerial.jpg",
+    alt: "Aerial view of Rauhan Marinella Village near Lake Saimaa",
+    caption: "Aerial view",
+  },
+];
+
+export const photoGallery = [
+  {
+    src: "/assets/photos/01-exterior-main.jpg",
+    alt: "Front facade of Rauhan Marinella Village",
+    caption: "Main entrance",
+  },
+  {
+    src: "/assets/photos/02-exterior-side.jpg",
+    alt: "Side view of the hotel building",
+    caption: "Side view",
+  },
+  {
+    src: "/assets/photos/03-living-room.jpg",
+    alt: "Apartment living room with sofa and TV",
+    caption: "Living room",
+  },
+  {
+    src: "/assets/photos/04-kitchen-dining.jpg",
+    alt: "Apartment kitchen and dining area",
+    caption: "Kitchen & dining",
+  },
+  {
+    src: "/assets/photos/05-surroundings.jpg",
+    alt: "Forest surroundings around the hotel",
+    caption: "Surroundings",
+  },
+  {
+    src: "/assets/photos/06-bedroom.jpg",
+    alt: "Apartment bedroom",
+    caption: "Bedroom",
+  },
+  {
+    src: "/assets/photos/07-terrace.jpg",
+    alt: "Outdoor terrace with seating",
+    caption: "Terrace",
+  },
+  {
+    src: "/assets/photos/08-courtyard.jpg",
+    alt: "Hotel courtyard and parking area",
+    caption: "Courtyard",
+  },
+  {
+    src: "/assets/photos/11-interior-cozy.jpg",
+    alt: "Cozy interior corner",
+    caption: "Cozy interior",
+  },
+  {
+    src: "/assets/photos/12-lake-saimaa.jpg",
+    alt: "Lake Saimaa nearby",
+    caption: "Lake Saimaa",
+  },
+  {
+    src: "/assets/photos/13-summer-grounds.jpg",
+    alt: "Hotel grounds in summer",
+    caption: "Summer grounds",
+  },
+  {
+    src: "/assets/photos/14-winter-view.jpg",
+    alt: "Winter view of the hotel",
+    caption: "Winter view",
+  },
+];

@@ -1,7 +1,9 @@
 import BookingCtaSection from "../../sections/BookingCtaSection";
 import PageHero from "../../sections/PageHero";
+import PhotoGallery from "../../sections/PhotoGallery";
 import Section from "../../components/Section";
 import Heading from "../../components/Heading";
+import { photoFeatures, photoGallery } from "../../lib/content";
 import { createPageMetadata } from "../../lib/seo";
 import styles from "./page.module.css";
 
@@ -23,16 +25,9 @@ export default function PhotosPage() {
       />
       <Section>
         <Heading align="center" as="h2" className={styles.heading} eyebrow="Our hotel">
-          Gallery coming soon
+          Our hotel in pictures
         </Heading>
-        <p className={styles.placeholder}>
-          We are working on adding our full photo gallery here. In the meantime,
-          please{" "}
-          <a className={styles.link} href="/contact">
-            contact us
-          </a>{" "}
-          and we will be happy to send photos directly.
-        </p>
+        <PhotoGallery features={photoFeatures} photos={photoGallery} />
       </Section>
       <BookingCtaSection />
     </main>
