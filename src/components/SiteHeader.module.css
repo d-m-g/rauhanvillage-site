@@ -160,8 +160,9 @@
   flex: 1;
   flex-wrap: nowrap;
   align-items: stretch;
-  gap: 0;
+  gap: 0.15rem;
   min-width: 0;
+  padding-right: var(--space-2);
 }
 
 .link {

@@ -8,9 +8,17 @@ import styles from "./WalkingActivitiesMap.module.css";
 
 const COORD_PRECISION = 5;
 const PANEL_HIDE_DELAY_MS = 140;
+const PAIR_OFFSET_METERS = 18;
 
 function coordKey(lat, lng) {
   return `${lat.toFixed(COORD_PRECISION)},${lng.toFixed(COORD_PRECISION)}`;
+}
+
+function offsetPosition(lat, lng, eastMeters, northMeters) {
+  const latRad = (lat * Math.PI) / 180;
+  const metersPerDegLat = 111320;
+  const metersPerDegLng = 111320 * Math.cos(latRad);
+  return [lat + northMeters / metersPerDegLat, lng + eastMeters / metersPerDegLng];
 }
 
 function groupMarkers(activities) {
@@ -31,12 +39,29 @@ function groupMarkers(activities) {
     groups.get(key).entries.push(entry);
   }
 
-  return Array.from(groups.values()).map((group, index) => ({
-    id: `marker-group-${index}`,
-    position: [group.lat, group.lng],
-    entries: group.entries,
-    isGroup: group.entries.length > 1,
-  }));
+  const markerGroups = [];
+  let index = 0;
+  for (const group of groups.values()) {
+    if (group.entries.length === 2) {
+      group.entries.forEach((entry, pairIndex) => {
+        const east = pairIndex === 0 ? -PAIR_OFFSET_METERS : PAIR_OFFSET_METERS;
+        markerGroups.push({
+          id: `marker-group-${index++}`,
+          position: offsetPosition(group.lat, group.lng, east, 0),
+          entries: [entry],
+          isGroup: false,
+        });
+      });
+    } else {
+      markerGroups.push({
+        id: `marker-group-${index++}`,
+        position: [group.lat, group.lng],
+        entries: group.entries,
+        isGroup: group.entries.length > 1,
+      });
+    }
+  }
+  return markerGroups;
 }
 
 function createNumberIcon(number) {
