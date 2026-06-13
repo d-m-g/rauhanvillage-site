@@ -51,9 +51,9 @@ function createNumberIcon(number) {
 function createGroupIcon(count) {
   return L.divIcon({
     className: styles.markerWrap,
-    html: `<span class="${styles.markerBadge} ${styles.markerBadgeGroup}">${count}</span>`,
-    iconSize: [34, 34],
-    iconAnchor: [17, 17],
+    html: `<span class="${styles.markerBadge} ${styles.markerBadgeGroup}"><svg class="${styles.markerBadgeIcon}" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="${styles.markerBadgeCount}">${count}</span></span>`,
+    iconSize: [44, 34],
+    iconAnchor: [22, 17],
   });
 }
 
