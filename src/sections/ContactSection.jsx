@@ -72,7 +72,7 @@ export default function ContactSection() {
                 </a>
               </div>
               <div className={styles.infoTile}>
-                <p className={styles.infoLabel}>Rauhan Village</p>
+                <p className={styles.infoLabel}>Address</p>
                 <p className={styles.infoText}>
                   Vipelenpelto 7,
                   <br />
@@ -119,7 +119,7 @@ export default function ContactSection() {
         <Card as="section" className={styles.formCard}>
           <div className={styles.formHeader}>
             <Heading eyebrow="Reservation" as="h3">
-              Book a room
+              Send a request
             </Heading>
             <p className={styles.formIntro}>
               Tell us your travel dates and a few details — we&apos;ll reply

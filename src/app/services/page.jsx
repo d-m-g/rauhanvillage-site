@@ -27,7 +27,6 @@ export default function ServicesPage() {
           "Discounted Aquapark tickets",
           "Long-term rent available",
         ]}
-        primaryCta={{ label: "Book a Room", href: "/contact" }}
       />
       <Section>
         <Heading align="center" as="h2" className={styles.heading} eyebrow="What we offer">
