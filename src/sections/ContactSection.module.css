@@ -225,3 +225,24 @@
   color: var(--color-muted);
   font-size: 0.9rem;
 }
+
+.noteSuccess {
+  color: #1f7a3a;
+  font-weight: 600;
+}
+
+.noteError {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}

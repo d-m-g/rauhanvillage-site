@@ -1,22 +1,9 @@
-import Button from "../components/Button";
+import BookingForm from "./BookingForm";
 import Card from "../components/Card";
 import Heading from "../components/Heading";
-import Input from "../components/Input";
 import Section from "../components/Section";
-import Textarea from "../components/Textarea";
 import { contactInfo } from "../lib/content";
 import styles from "./ContactSection.module.css";
-
-const apartmentOptions = [
-  "2 bedroom 4 people",
-  "2 bedroom 4 people with pets",
-  "2 bedroom 5 people",
-  "2 bedroom 5 people with pets",
-];
-
-const adultsOptions = ["1", "2", "3", "4", "5"];
-const childrenOptions = ["0", "1", "2", "3", "4"];
-const petsOptions = ["Apartment with allowed pets", "Apartment without pets"];
 
 const drivingDirections = [
   {
@@ -31,29 +18,6 @@ const drivingDirections = [
     href: "https://www.google.com/maps/place/Almintie+8,+55320+Lappeenranta,+Finland/@61.1947439,28.6950905,18z",
   },
 ];
-
-function SelectField({ id, label, name, options, defaultValue = "" }) {
-  return (
-    <label className={styles.selectField} htmlFor={id}>
-      <span className={styles.selectLabel}>{label}</span>
-      <select
-        className={styles.select}
-        defaultValue={defaultValue}
-        id={id}
-        name={name}
-      >
-        <option disabled value="">
-          {label}
-        </option>
-        {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-    </label>
-  );
-}
 
 export default function ContactSection() {
   return (
@@ -117,98 +81,7 @@ export default function ContactSection() {
         <span aria-hidden="true" className={styles.divider} />
 
         <Card as="section" className={styles.formCard}>
-          <div className={styles.formHeader}>
-            <Heading eyebrow="Reservation" as="h3">
-              Send a request
-            </Heading>
-            <p className={styles.formIntro}>
-              Tell us your travel dates and a few details — we&apos;ll reply
-              with availability and pricing.
-            </p>
-          </div>
-          <form className={styles.form}>
-            <Input id="name" label="Name" name="name" placeholder="Your name" />
-            <Input
-              id="phone"
-              label="Phone Number"
-              name="phone"
-              placeholder="+358..."
-              type="tel"
-            />
-            <Input
-              id="email"
-              label="Email"
-              name="email"
-              placeholder="you@example.com"
-              type="email"
-            />
-            <Input
-              id="arrival"
-              label="Arrival date"
-              name="arrival"
-              type="date"
-            />
-            <Input
-              id="departure"
-              label="Departure date"
-              name="departure"
-              type="date"
-            />
-            <SelectField
-              id="apartment-type"
-              label="Apartment type"
-              name="apartment_type"
-              options={apartmentOptions}
-            />
-            <SelectField
-              id="adults"
-              label="Number of adults"
-              name="adults"
-              options={adultsOptions}
-            />
-            <SelectField
-              id="children"
-              label="Number of children"
-              name="children"
-              options={childrenOptions}
-            />
-            <SelectField
-              id="pets"
-              label="Pets"
-              name="pets"
-              options={petsOptions}
-            />
-            <Input
-              id="referral"
-              label="How did you find us?"
-              name="referral"
-              placeholder="e.g. Google, booking site, recommendation..."
-            />
-            <Input
-              className={styles.fullWidth}
-              id="promo"
-              label="Promotion code"
-              name="promo"
-              placeholder="Enter code if you have one"
-            />
-            <Textarea
-              id="special-request"
-              label="Special request"
-              name="special_request"
-              placeholder="Anything else we should know about your stay?"
-            />
-            <label className={styles.checkbox}>
-              <input name="personal-data" type="checkbox" />
-              <span>I agree to usage of my personal data</span>
-            </label>
-            <div className={styles.actions}>
-              <Button type="submit">Send</Button>
-              <span className={styles.note}>
-                Form submission coming soon — please call, WhatsApp or email
-                directly.
-              </span>
-            </div>
-          </form>
+          <BookingForm />
         </Card>
       </div>
     </Section>
