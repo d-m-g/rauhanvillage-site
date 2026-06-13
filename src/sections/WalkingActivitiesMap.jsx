@@ -243,14 +243,14 @@ export default function WalkingActivitiesMap({
     return L.latLngBounds(markerGroups.map((group) => group.position));
   }, [markerGroups]);
 
-  if (markerGroups.length === 0) {
-    return null;
-  }
-
   const hidePanelImmediately = useCallback(() => {
     clearHideTimer();
     setPanel(null);
   }, [clearHideTimer]);
+
+  if (markerGroups.length === 0) {
+    return null;
+  }
 
   return (
     <div className={styles.mapShell}>
