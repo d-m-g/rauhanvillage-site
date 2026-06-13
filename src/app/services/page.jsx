@@ -10,7 +10,7 @@ import styles from "./page.module.css";
 export const metadata = createPageMetadata({
   title: "Services",
   description:
-    "Services at Rauhan Marinella Village — BBQ, sauna, dining hall, free Wi-Fi, free parking, pet-friendly options, and baby equipment.",
+    "Services at Rauhan Marinella Village — sport camps, events, meetings, long-term rentals, sauna, discounted Aquapark tickets, cleaning, linen and catering.",
   path: "/services",
 });
 
@@ -19,13 +19,13 @@ export default function ServicesPage() {
     <main>
       <PageHero
         eyebrow="Hotel services"
-        title="Everything you need"
-        description="From a complimentary BBQ terrace to a private sauna and celebration hall for groups — Rauhan Marinella Village is set up for a comfortable, relaxing stay."
+        title="Our hotel offers a wide range of services and facilities"
+        description="From sport camps and celebrations to meetings, sauna rental and discounted Aquapark tickets — Rauhan Marinella Village is set up for groups and longer stays."
         stats={[
-          "BBQ free of charge",
-          "Sauna & hall rental",
-          "Free Wi-Fi & parking",
-          "Pets welcome",
+          "Sport camps & meetings",
+          "Sauna rental",
+          "Discounted Aquapark tickets",
+          "Long-term rent available",
         ]}
         primaryCta={{ label: "Book a Room", href: "/contact" }}
       />

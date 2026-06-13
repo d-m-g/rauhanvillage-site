@@ -569,34 +569,49 @@ export const byCarActivities = [
 
 export const services = [
   {
-    title: "Barbeque",
+    title: "Sport camps",
     description:
-      "The hotel offers all the needed BBQ equipment for guests free of charge. Enjoy an evening cookout on our picturesque terrace.",
+      "Our hotel is a perfect place for arranging a sport camp or any group visit.",
   },
   {
-    title: "Sauna & Dining Hall",
+    title: "Event celebrations",
     description:
-      "A traditional Finnish sauna and a large celebration and dining hall with a kitchen can be rented for an extra charge — perfect for private events and group gatherings.",
+      "A great place for birthday or wedding celebrations. For children we can arrange themed quests.",
   },
   {
-    title: "Free Wi-Fi",
+    title: "Meetings",
     description:
-      "Free high-speed Wi-Fi is available throughout Rauhan Marinella Village Hotel and in the dining and celebration hall.",
+      "Any types of business meetings, team building or other group activities are welcome.",
   },
   {
-    title: "Free Parking",
+    title: "Long-term rent",
     description:
-      "Free private parking is available on site. No reservation needed.",
+      "Long-term and short-term rent of the apartments for your employees is available on request.",
   },
   {
-    title: "Pets Welcome",
+    title: "Sauna",
     description:
-      "Pets are allowed by request in specially designated apartments. Please mention your pet when booking.",
+      "A large sauna is available for rent. Sauna rental is 50 € for 3 hours.",
   },
   {
-    title: "Baby Equipment",
+    title: "Discounted tickets",
     description:
-      "A baby cot and baby chair are available by request, making family stays extra comfortable.",
+      "Guests can purchase discounted tickets to the Aquapark, located within 1 km of the hotel.",
+  },
+  {
+    title: "Cleaning",
+    description:
+      "Final cleaning is included in the price. Extra cleaning during your stay is 20 €.",
+  },
+  {
+    title: "Linen change",
+    description:
+      "Linen is included in the rental price. Additional linen change is 15 € per person.",
+  },
+  {
+    title: "Catering",
+    description:
+      "For groups of tourists, catering can be ordered by request.",
   },
 ];
 

@@ -36,17 +36,25 @@ function ActivityCard({ item, index, cardId }) {
 }
 
 function ActivityGroup({ activities, eyebrow, title, showMap = false }) {
+  const heading = (
+    <Reveal variant="fade">
+      <p className={styles.eyebrow}>{eyebrow}</p>
+      <h2 className={styles.groupTitle}>{title}</h2>
+    </Reveal>
+  );
+
   return (
     <div className={styles.group}>
-      <Reveal variant="fade">
-        <p className={styles.eyebrow}>{eyebrow}</p>
-        <h2 className={styles.groupTitle}>{title}</h2>
-      </Reveal>
       {showMap ? (
-        <Reveal variant="fade">
-          <WalkingActivitiesMap activities={activities} />
-        </Reveal>
-      ) : null}
+        <>
+          <Reveal variant="fade">
+            <WalkingActivitiesMap activities={activities} />
+          </Reveal>
+          {heading}
+        </>
+      ) : (
+        heading
+      )}
       <div className={styles.grid}>
         {activities.map((item, index) => (
           <ActivityCard
