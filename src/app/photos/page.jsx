@@ -1,5 +1,4 @@
 import BookingCtaSection from "../../sections/BookingCtaSection";
-import PageHero from "../../sections/PageHero";
 import PhotoGallery from "../../sections/PhotoGallery";
 import Section from "../../components/Section";
 import Heading from "../../components/Heading";
@@ -17,12 +16,6 @@ export const metadata = createPageMetadata({
 export default function PhotosPage() {
   return (
     <main>
-      <PageHero
-        eyebrow="Gallery"
-        title="Photos"
-        description="Take a look at Rauhan Marinella Village Hotel, its apartments, the forest surroundings, and nearby Lake Saimaa."
-        primaryCta={{ label: "Book a Room", href: "/contact" }}
-      />
       <Section>
         <Heading align="center" as="h2" className={styles.heading} eyebrow="Our hotel">
           Our hotel in pictures

@@ -14,9 +14,9 @@ export default function ContactPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Get in touch"
-        title="Contact & Book"
-        description="Book a room, ask about availability, or enquire about group stays and events. We respond quickly — you can also call or message us directly on WhatsApp."
+        eyebrow="Contact us"
+        title="We will answer you as soon as possible"
+        description="Book a room, ask about availability, or enquire about group stays and events. You can also reach us by phone, WhatsApp or email."
         stats={[
           `Phone: ${contactInfo.phoneDisplay}`,
           `Email: ${contactInfo.email}`,
