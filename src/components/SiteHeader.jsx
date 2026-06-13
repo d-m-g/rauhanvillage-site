@@ -85,10 +85,6 @@ export default function SiteHeader() {
           </a>
         </div>
 
-        <Button className={styles.cta} href="/contact">
-          Book a Room
-        </Button>
-
         <div className={styles.bottomRow}>
           <Link
             className={styles.brand}
@@ -110,6 +106,10 @@ export default function SiteHeader() {
             ))}
           </nav>
         </div>
+
+        <Button className={styles.cta} href="/contact">
+          Book a Room
+        </Button>
       </Container>
     </header>
   );

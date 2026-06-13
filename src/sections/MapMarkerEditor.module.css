@@ -1,0 +1,189 @@
+.layout {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 1100px) {
+  .layout {
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
+  }
+}
+
+.mapShell {
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.map {
+  width: 100%;
+  height: clamp(420px, 70vh, 720px);
+}
+
+.markerWrap {
+  background: transparent;
+  border: none;
+}
+
+.markerBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 107, 195, 0.35);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: grab;
+}
+
+.markerBadgeDragging {
+  cursor: grabbing;
+}
+
+.panel {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: var(--color-surface-soft, #f7f9fb);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.panelTitle {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.panelActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-family: var(--font-button);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.primaryButton {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+.primaryButton:hover {
+  background: var(--color-accent-dark);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.secondaryButton:hover {
+  background: rgba(0, 107, 195, 0.08);
+}
+
+.panelHint {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.inlineCode {
+  margin: 0 0.25rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(0, 107, 195, 0.08);
+  color: var(--color-accent-dark);
+  font-size: 0.82rem;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+  max-height: clamp(320px, 55vh, 560px);
+  overflow-y: auto;
+}
+
+.listItem {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.55rem 0.65rem;
+  background: #ffffff;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+}
+
+.listMain {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.listNumber {
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  min-width: 1.6rem;
+}
+
+.listTitle {
+  color: var(--color-ink);
+  font-size: 0.88rem;
+  font-weight: 600;
+  flex: 1;
+  min-width: 0;
+}
+
+.changedBadge {
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(0, 107, 195, 0.12);
+  color: var(--color-accent-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.listCoords {
+  color: var(--color-muted);
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 0.78rem;
+}
