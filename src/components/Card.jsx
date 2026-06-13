@@ -4,8 +4,13 @@ export default function Card({
   as: Tag = "article",
   className = "",
   children,
+  ...props
 }) {
   const classes = [styles.card, className].filter(Boolean).join(" ");
 
-  return <Tag className={classes}>{children}</Tag>;
+  return (
+    <Tag className={classes} {...props}>
+      {children}
+    </Tag>
+  );
 }

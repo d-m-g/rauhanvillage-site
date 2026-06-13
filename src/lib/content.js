@@ -152,7 +152,14 @@ export const apartHotelTypes = [
   },
 ];
 
-export const lux3Gallery = [];
+export const lux3Gallery = [
+  { src: "/assets/lux-3/01-lake-view.jpg", alt: "Lake view from the apartment balcony" },
+  { src: "/assets/lux-3/02-living-room.jpg", alt: "Living and seating area" },
+  { src: "/assets/lux-3/03-bedroom-1.jpg", alt: "Bedroom 1 with double bed" },
+  { src: "/assets/lux-3/04-bedroom-2.jpg", alt: "Bedroom 2 with single beds" },
+  { src: "/assets/lux-3/05-kitchen.jpg", alt: "Kitchen and dining area" },
+  { src: "/assets/lux-3/06-sauna-bathroom.jpg", alt: "Bathroom with sauna" },
+];
 
 export const lux3Intro = [
   "Apartment is located right opposite the Holiday Club Saimaa Hotel and Aquapark, and in 900 m from the Rauhan Marinella Village Hotel. Apartment is situated on the 2nd floor and accessible by stairs only.",
@@ -218,7 +225,14 @@ export const lux3RoomSpecColumns = [
   ],
 ];
 
-export const lux1Gallery = [];
+export const lux1Gallery = [
+  { src: "/assets/lux-1/01-lake-view.jpg", alt: "Lake view from the apartment balcony" },
+  { src: "/assets/lux-1/02-living-room.jpg", alt: "Living and seating area" },
+  { src: "/assets/lux-1/03-bedroom.jpg", alt: "Bedroom with double bed" },
+  { src: "/assets/lux-1/04-kitchen.jpg", alt: "Kitchen and dining area" },
+  { src: "/assets/lux-1/05-sauna-bathroom.jpg", alt: "Bathroom with sauna" },
+  { src: "/assets/lux-1/06-dining.jpg", alt: "Dining area" },
+];
 
 export const lux1Intro = [
   "Apartment is located right opposite the Holiday Club Saimaa Hotel and Aquapark, and in 900 m from the Rauhan Marinella Village Hotel. Apartment is situated on the 2nd floor and accessible by stairs only.",
@@ -321,54 +335,235 @@ export const apartments = [
   },
 ];
 
-export const activities = [
+export const walkingDistanceActivities = [
   {
-    title: "Aquapark & Spa",
-    description:
-      "Holiday Club Saimaa Aquapark and Spa is just 900 m from the hotel. Our guests enjoy up to 50% discount on tickets.",
-    distance: "900 m",
+    title: "Rauhan Marinella Village",
+    description: "Our Hotel",
+    distance: "On-site",
+    address: "Vipelenpelto 7, 55320, Rauha",
+    phone: "+358 40 164 6922",
+    lat: 61.1964337,
+    lng: 28.6810398,
   },
   {
-    title: "Atreenalin Rope Activity Park",
-    description:
-      "An exciting rope course activity park for all ages, perfect for families and groups seeking an outdoor adventure.",
-    distance: "Within 2 km",
+    title: "Beach",
+    description: "Sandy beach",
+    distance: "650 m",
+    lat: 61.19628,
+    lng: 28.69346,
   },
   {
-    title: "Bowling",
-    description:
-      "Bowling lanes available nearby for a fun indoor activity for families and groups of all ages.",
-    distance: "Within 2 km",
+    title: "Angry Birds activity park",
+    description: "Indoor activity for children",
+    distance: "650 m",
+    lat: 61.19305,
+    lng: 28.6911,
   },
   {
-    title: "Golf",
-    description:
-      "Imatra Golf Club is located within 3 km, offering a beautiful course surrounded by Finnish nature.",
-    distance: "3 km",
+    title: "Holiday Club Spa and Aquapark",
+    description: "Aquapark and Spa",
+    distance: "850 m",
+    address: "Rauhanrinne 1, 55320 Rauha",
+    phone: "+358 300 870950",
+    note: "Discounted tickets at our hotel",
+    lat: 61.19264,
+    lng: 28.69509,
   },
   {
     title: "Tennis",
-    description:
-      "A tennis court is located 900 m from the property — great for a match before or after breakfast.",
-    distance: "900 m",
+    description: "Open air tennis court",
+    distance: "750 m",
+    address: "Rauhanrinne 1, 55320 Rauha",
+    phone: "+358 300 870950",
+    lat: 61.19538,
+    lng: 28.69464,
   },
   {
-    title: "Cycling & Bike Rental",
-    description:
-      "Explore the beautiful Saimaa lakeside and forest trails on two wheels. Bike rental is available within walking distance.",
-    distance: "Within 2 km",
+    title: "Robert's Cafe",
+    description: "Cafe on the beach",
+    distance: "800 m",
+    note: "High season only",
+    lat: 61.19585,
+    lng: 28.69552,
   },
   {
-    title: "Boating",
-    description:
-      "Boat rental lets you explore the vast Lake Saimaa archipelago. The lake is just 300 m from the hotel.",
-    distance: "300 m",
+    title: "O'Learys",
+    description: "Restaurant",
+    distance: "850 m",
+    address: "Rauhanrinne 1, 55320 Rauha",
+    phone: "+358 300 870950",
+    lat: 61.19264,
+    lng: 28.69509,
   },
   {
-    title: "Hiking & Cross-Country Skiing",
-    description:
-      "Several scenic hiking trails and cross-country skiing tracks run right through the surrounding forest.",
-    distance: "On-site",
+    title: "Classic Pizza Saima",
+    description: "Restaurant",
+    distance: "850 m",
+    address: "Rauhanrinne 1, 55320 Rauha",
+    phone: "+358 300 870950",
+    lat: 61.19264,
+    lng: 28.69509,
+  },
+  {
+    title: "Easy Kitchen",
+    description: "Restaurant",
+    distance: "850 m",
+    address: "Rauhanrinne 1, 55320 Rauha",
+    phone: "+358 300 870950",
+    lat: 61.19264,
+    lng: 28.69509,
+  },
+  {
+    title: "Foot and bike routes",
+    description: "Routes in Rauha and Imatra",
+    distance: "650 m",
+    lat: 61.19602,
+    lng: 28.69309,
+  },
+  {
+    title: "Bowling",
+    description: "Bowling in Holiday Club Hotel",
+    distance: "850 m",
+    lat: 61.19264,
+    lng: 28.69509,
+  },
+  {
+    title: "R-kioski",
+    description: "Small shop",
+    distance: "850 m",
+    address: "Rauhanrinne 1, 55320 Rauha",
+    lat: 61.19264,
+    lng: 28.69509,
+  },
+  {
+    title: "Atreenalin Park",
+    description: "Rope attraction park",
+    distance: "1.2 km",
+    address: "Tiuruniementie 84, 55320 Rauha",
+    phone: "+358 400 354795",
+    lat: 61.18969,
+    lng: 28.69822,
+  },
+  {
+    title: "Mini golf",
+    description: "Mini golf",
+    distance: "800 m",
+    note: "High season only",
+    lat: 61.19429,
+    lng: 28.6956,
+  },
+  {
+    title: "Gym",
+    description: "Gym",
+    distance: "850 m",
+    address: "Rauhanrinne 1, 55320 Rauha",
+    phone: "+358 300 870950",
+    lat: 61.19264,
+    lng: 28.69509,
+  },
+  {
+    title: "Bike rental",
+    description: "Donkey bike rental",
+    distance: "800 m",
+    lat: 61.19221,
+    lng: 28.69335,
+  },
+  {
+    title: "Electro Scooter rental",
+    description: "jOe scooter rental",
+    distance: "800 m",
+    lat: 61.19221,
+    lng: 28.69335,
+  },
+  {
+    title: "Beach House",
+    description: "Equipment rental",
+    distance: "800 m",
+    phone: "+358 50 3778895",
+    note: "High season only",
+    lat: 61.19585,
+    lng: 28.69552,
+  },
+];
+
+export const byCarActivities = [
+  {
+    title: "Ruokolahden Freeski",
+    description: "Ski resort",
+    distance: "27 km",
+    address: "Lomatie 16, 56120 Ruokolahti",
+    phone: "+358 400 889851",
+  },
+  {
+    title: "Myllymäki",
+    description: "Ski resort",
+    distance: "23 km",
+    address: "Myllymäentie 83, 54100 Joutseno",
+    phone: "+358 45 2080335",
+  },
+  {
+    title: "Holiday Club Golf",
+    description: "Golf",
+    distance: "3 km",
+    address: "Rauhanrinne 1, 55320 Rauha",
+    phone: "+358 300 870950",
+  },
+  {
+    title: "Tennis Hall",
+    description: "Indoor and outdoor tennis courts",
+    distance: "7 km",
+    address: "Ottelukatu 2, 55420 Imatra",
+    phone: "+358 20 7100 500",
+  },
+  {
+    title: "Imatran Kylpylä SPA",
+    description: "Spa and aquapark",
+    distance: "7 km",
+    address: "Purjekuja 2, 55420 Imatra",
+    phone: "+358 20 7100 500",
+  },
+  {
+    title: "Shops at the city center",
+    description: "Prisma, K-Citymarket, Jysk, Tokmanni, LIDL, Raja Market",
+    distance: "6 km",
+    address: "Keskuskatu, 55120 Imatra",
+  },
+  {
+    title: "Foot and bike routes",
+    description: "Routes in Rauha and Imatra",
+    distance: "0 km",
+  },
+  {
+    title: "Football Field",
+    description: "Outdoor and indoor field",
+    distance: "5 km",
+    address: "Ottelukatu, 55420 Imatra",
+  },
+  {
+    title: "Waterfall",
+    description: "Beautiful waterfall on the river Vuoksi",
+    distance: "8 km",
+    address: "Imatrankoskentie 3, 55100 Imatra",
+    phone: "+358 20 6177777",
+  },
+  {
+    title: "ISO KRISTIINA",
+    description: "Shopping mall in Lappeenranta",
+    distance: "35 km",
+    address: "Kaivokatu 5 B, 53100 Lappeenranta",
+  },
+  {
+    title: "Galleria",
+    description: "Shopping mall in Lappeenranta",
+    distance: "35 km",
+    address: "Kauppakatu 40, 53100 Lappeenranta",
+  },
+  {
+    title: "Dog sledding",
+    description: "Dog sledding",
+    distance: "7 km",
+    phone: "+358 50 356 7043",
+    note: "High season only",
   },
 ];
 
