@@ -46,6 +46,44 @@ export default function ApartHotelGallery({ images }) {
     });
   }, []);
 
+  const goToPrevious = useCallback(() => {
+    if (total === 0 || isWrappingRef.current) {
+      return;
+    }
+
+    setPaused(true);
+    setTransitionEnabled(true);
+
+    if (index > 0) {
+      setIndex(index - 1);
+      return;
+    }
+
+    setTransitionEnabled(false);
+    setIndex(total);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setTransitionEnabled(true);
+        setIndex(total - 1);
+      });
+    });
+  }, [index, total]);
+
+  const goToNext = useCallback(() => {
+    if (total === 0 || isWrappingRef.current) {
+      return;
+    }
+
+    setPaused(true);
+    setTransitionEnabled(true);
+    setIndex((current) => {
+      if (current >= total) {
+        return current;
+      }
+      return current + 1;
+    });
+  }, [total]);
+
   useEffect(() => {
     if (paused || total === 0 || isWrappingRef.current) {
       return undefined;
@@ -119,6 +157,14 @@ export default function ApartHotelGallery({ images }) {
       }}
     >
       <div className={styles.viewport}>
+        <button
+          aria-label="Previous photo"
+          className={`${styles.arrowButton} ${styles.arrowPrevious}`}
+          onClick={goToPrevious}
+          type="button"
+        >
+          <span aria-hidden="true">‹</span>
+        </button>
         <div
           className={styles.track}
           data-animate={transitionEnabled}
@@ -146,6 +192,14 @@ export default function ApartHotelGallery({ images }) {
             </div>
           ))}
         </div>
+        <button
+          aria-label="Next photo"
+          className={`${styles.arrowButton} ${styles.arrowNext}`}
+          onClick={goToNext}
+          type="button"
+        >
+          <span aria-hidden="true">›</span>
+        </button>
       </div>
 
       <div className={styles.dots}>

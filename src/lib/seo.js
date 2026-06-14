@@ -26,7 +26,7 @@ export const defaultMetadata = {
 };
 
 export function createPageMetadata({
-  title,
+  title,    
   description = defaultMetadata.description,
   path = "/",
 }) {
