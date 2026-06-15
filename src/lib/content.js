@@ -570,46 +570,55 @@ export const byCarActivities = [
 export const services = [
   {
     title: "Sport camps",
+    image: "/assets/services/sport-camps.png",
     description:
       "Our hotel is a perfect place for arranging a sport camp or any group visit.",
   },
   {
     title: "Event celebrations",
+    image: "/assets/services/event-celebrations.jpg",
     description:
       "A great place for birthday or wedding celebrations. For children we can arrange themed quests.",
   },
   {
     title: "Meetings",
+    image: "/assets/services/meetings.jpg",
     description:
       "Any types of business meetings, team building or other group activities are welcome.",
   },
   {
     title: "Long-term rent",
+    image: "/assets/services/long-term-rent.jpg",
     description:
       "Long-term and short-term rent of the apartments for your employees is available on request.",
   },
   {
     title: "Sauna",
+    image: "/assets/services/sauna.jpeg",
     description:
       "A large sauna is available for rent. Sauna rental is 50 € for 3 hours.",
   },
   {
     title: "Discounted tickets",
+    image: "/assets/services/discounted-tickets.jpg",
     description:
       "Guests can purchase discounted tickets to the Aquapark, located within 1 km of the hotel.",
   },
   {
     title: "Cleaning",
+    image: "/assets/services/cleaning.jpg",
     description:
       "Final cleaning is included in the price. Extra cleaning during your stay is 20 €.",
   },
   {
     title: "Linen change",
+    image: "/assets/services/linen-change.jpeg",
     description:
       "Linen is included in the rental price. Additional linen change is 15 € per person.",
   },
   {
     title: "Catering",
+    image: "/assets/services/catering.jpg",
     description:
       "For groups of tourists, catering can be ordered by request.",
   },

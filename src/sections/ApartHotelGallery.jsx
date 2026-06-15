@@ -19,6 +19,7 @@ function isSlideVisible(slideIndex, currentIndex) {
 export default function ApartHotelGallery({ images }) {
   const trackRef = useRef(null);
   const isWrappingRef = useRef(false);
+  const skipForwardWrapRef = useRef(false);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
@@ -60,6 +61,7 @@ export default function ApartHotelGallery({ images }) {
     }
 
     setTransitionEnabled(false);
+    skipForwardWrapRef.current = true;
     setIndex(total);
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -103,6 +105,11 @@ export default function ApartHotelGallery({ images }) {
 
   useEffect(() => {
     if (total === 0 || index !== total) {
+      return undefined;
+    }
+
+    if (skipForwardWrapRef.current) {
+      skipForwardWrapRef.current = false;
       return undefined;
     }
 
