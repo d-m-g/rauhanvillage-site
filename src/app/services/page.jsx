@@ -1,3 +1,4 @@
+import Image from "next/image";
 import BookingCtaSection from "../../sections/BookingCtaSection";
 import PageHero from "../../sections/PageHero";
 import Section from "../../components/Section";
@@ -27,7 +28,6 @@ export default function ServicesPage() {
           "Discounted Aquapark tickets",
           "Long-term rent available",
         ]}
-        primaryCta={{ label: "Book a Room", href: "/contact" }}
       />
       <Section>
         <Heading align="center" as="h2" className={styles.heading} eyebrow="What we offer">
@@ -36,8 +36,20 @@ export default function ServicesPage() {
         <div className={styles.grid}>
           {services.map((service) => (
             <Card as="article" className={styles.card} key={service.title}>
-              <h3 className={styles.title}>{service.title}</h3>
-              <p className={styles.text}>{service.description}</p>
+              <div className={styles.media}>
+                <Image
+                  alt={service.title}
+                  className={styles.image}
+                  height={360}
+                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                  src={service.image}
+                  width={480}
+                />
+              </div>
+              <div className={styles.content}>
+                <h3 className={styles.title}>{service.title}</h3>
+                <p className={styles.text}>{service.description}</p>
+              </div>
             </Card>
           ))}
         </div>
