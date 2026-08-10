@@ -48,8 +48,8 @@ export default function SiteFooter() {
           <a className={styles.contactLine} href="tel:+358407236337">
             Phone/WhatsApp: +358 40 723 6337
           </a>
-          <a className={styles.contactLine} href="mailto:rauhanvillage@gmail.com">
-            Email: rauhanvillage@gmail.com
+          <a className={styles.contactLine} href="mailto:info@rauhanvillage.com">
+            Email: info@rauhanvillage.com
           </a>
           <p className={styles.contactLine}>
             Vipelenpelto 7, 55320, Rauha, Finland

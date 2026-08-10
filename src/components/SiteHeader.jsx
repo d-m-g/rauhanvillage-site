@@ -74,14 +74,14 @@ export default function SiteHeader() {
           </a>
           <a
             className={`${styles.infoItem} ${styles.infoItemEnd}`}
-            href="mailto:rauhanvillage@gmail.com"
+            href="mailto:info@rauhanvillage.com"
           >
             <span aria-hidden="true" className={styles.icon}>
               <svg viewBox="0 0 24 24">
                 <path d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25ZM5 7.4l6.53 4.89a.8.8 0 0 0 .94 0L19 7.4v-.65a.75.75 0 0 0-.75-.75H5.75a.75.75 0 0 0-.75.75Z" />
               </svg>
             </span>
-            <span className={styles.infoText}>rauhanvillage@gmail.com</span>
+            <span className={styles.infoText}>info@rauhanvillage.com</span>
           </a>
         </div>
 

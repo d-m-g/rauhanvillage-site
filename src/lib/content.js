@@ -1,7 +1,7 @@
 export const contactInfo = {
   phone: "+358407236337",
   phoneDisplay: "+358 40 723 6337",
-  email: "rauhanvillage@gmail.com",
+  email: "info@rauhanvillage.com",
   address: "Vipelenpelto 7, 55320, Rauha, Finland",
   mapsUrl:
     "https://maps.google.com/?q=Vipelenpelto+7+Rauha+55320+Finland",

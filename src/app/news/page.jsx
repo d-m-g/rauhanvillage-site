@@ -27,7 +27,7 @@ export default function NewsPage() {
         </Heading>
         <p className={styles.placeholder}>
           We are setting up our news section. Check back soon or{" "}
-          <a className={styles.link} href="mailto:rauhanvillage@gmail.com">
+          <a className={styles.link} href="mailto:info@rauhanvillage.com">
             subscribe via email
           </a>{" "}
           to receive updates directly.

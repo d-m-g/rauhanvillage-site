@@ -30,7 +30,7 @@ Copy `.env.example` → `.env.local` and fill in:
 ```
 RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxx
 CONTACT_FROM_EMAIL="Rauhan Village <booking@rauhanvillage.com>"
-CONTACT_TO_EMAIL=rauhanvillage@gmail.com
+CONTACT_TO_EMAIL=info@rauhanvillage.com
 ```
 
 `.env.local` is git-ignored.
