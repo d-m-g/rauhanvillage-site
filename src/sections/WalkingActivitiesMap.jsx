@@ -8,7 +8,7 @@ import styles from "./WalkingActivitiesMap.module.css";
 
 const COORD_PRECISION = 5;
 const PANEL_HIDE_DELAY_MS = 140;
-const PAIR_OFFSET_METERS = 18;
+const DUPLICATE_OFFSET_METERS = 26;
 
 function coordKey(lat, lng) {
   return `${lat.toFixed(COORD_PRECISION)},${lng.toFixed(COORD_PRECISION)}`;
@@ -42,12 +42,15 @@ function groupMarkers(activities) {
   const markerGroups = [];
   let index = 0;
   for (const group of groups.values()) {
-    if (group.entries.length === 2) {
-      group.entries.forEach((entry, pairIndex) => {
-        const east = pairIndex === 0 ? -PAIR_OFFSET_METERS : PAIR_OFFSET_METERS;
+    if (group.entries.length > 1) {
+      const radius = DUPLICATE_OFFSET_METERS + Math.max(0, group.entries.length - 4) * 2;
+      group.entries.forEach((entry, entryIndex) => {
+        const angle = (entryIndex / group.entries.length) * Math.PI * 2 - Math.PI / 2;
+        const east = Math.cos(angle) * radius;
+        const north = Math.sin(angle) * radius;
         markerGroups.push({
           id: `marker-group-${index++}`,
-          position: offsetPosition(group.lat, group.lng, east, 0),
+          position: offsetPosition(group.lat, group.lng, east, north),
           entries: [entry],
           isGroup: false,
         });
@@ -64,10 +67,10 @@ function groupMarkers(activities) {
   return markerGroups;
 }
 
-function createNumberIcon(number) {
+function createNumberIcon(number, isActive = false) {
   return L.divIcon({
     className: styles.markerWrap,
-    html: `<span class="${styles.markerBadge}">${number}</span>`,
+    html: `<span class="${styles.markerBadge} ${isActive ? styles.markerBadgeActive : ""}">${number}</span>`,
     iconSize: [30, 30],
     iconAnchor: [15, 15],
   });
@@ -88,11 +91,27 @@ function scrollToActivityCard(cardId) {
     return;
   }
 
-  card.scrollIntoView({ behavior: "smooth", block: "center" });
+  const header = document.querySelector("header");
+  const headerOffset = header ? header.getBoundingClientRect().height + 24 : 24;
+  const top = card.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+  window.scrollTo({ behavior: "smooth", top });
+  card.focus({ preventScroll: true });
   card.setAttribute("data-highlighted", "true");
   window.setTimeout(() => {
     card.removeAttribute("data-highlighted");
   }, 1800);
+}
+
+function scrollToMap(mapShell) {
+  if (!mapShell) {
+    return;
+  }
+
+  const header = document.querySelector("header");
+  const headerOffset = header ? header.getBoundingClientRect().height + 20 : 20;
+  const top = mapShell.getBoundingClientRect().top + window.scrollY - headerOffset;
+  window.scrollTo({ behavior: "smooth", top });
 }
 
 function HoverPanel({ entries, getActivityCardId, onKeepOpen, onNavigate, onRequestClose, x, y }) {
@@ -124,7 +143,14 @@ function HoverPanel({ entries, getActivityCardId, onKeepOpen, onNavigate, onRequ
   );
 }
 
-function MapMarkers({ getActivityCardId, groups, panel, setPanel, panelTimersRef }) {
+function MapMarkers({
+  getActivityCardId,
+  groups,
+  panel,
+  selectedNumber,
+  setPanel,
+  panelTimersRef,
+}) {
   const map = useMap();
 
   const clearHideTimer = useCallback(() => {
@@ -220,7 +246,7 @@ function MapMarkers({ getActivityCardId, groups, panel, setPanel, panelTimersRef
           icon={
             group.isGroup
               ? createGroupIcon(group.entries.length)
-              : createNumberIcon(group.entries[0].number)
+              : createNumberIcon(group.entries[0].number, group.entries[0].number === selectedNumber)
           }
           key={group.id}
           position={group.position}
@@ -230,13 +256,59 @@ function MapMarkers({ getActivityCardId, groups, panel, setPanel, panelTimersRef
   );
 }
 
+function MapTargetController({
+  clearHideTimer,
+  groups,
+  mapShellRef,
+  selectedTarget,
+  setPanel,
+}) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!selectedTarget) {
+      return undefined;
+    }
+
+    const group = groups.find((item) =>
+      item.entries.some((entry) => entry.number === selectedTarget.number),
+    );
+    if (!group) {
+      return undefined;
+    }
+
+    clearHideTimer();
+    scrollToMap(mapShellRef.current);
+    map.flyTo(group.position, Math.max(map.getZoom(), 16), {
+      animate: true,
+      duration: 0.7,
+    });
+
+    const timer = window.setTimeout(() => {
+      const point = map.latLngToContainerPoint(group.position);
+      setPanel({
+        entries: group.entries,
+        groupId: group.id,
+        x: point.x,
+        y: point.y,
+      });
+    }, 720);
+
+    return () => window.clearTimeout(timer);
+  }, [clearHideTimer, groups, map, mapShellRef, selectedTarget, setPanel]);
+
+  return null;
+}
+
 export default function WalkingActivitiesMap({
   activities,
   getActivityCardId = (index) => `walking-activity-${index + 1}`,
+  selectedTarget = null,
 }) {
   const markerGroups = useMemo(() => groupMarkers(activities), [activities]);
   const [panel, setPanel] = useState(null);
   const panelTimersRef = useRef({ hide: null });
+  const mapShellRef = useRef(null);
 
   const clearHideTimer = useCallback(() => {
     if (panelTimersRef.current.hide) {
@@ -277,8 +349,10 @@ export default function WalkingActivitiesMap({
     return null;
   }
 
+  const selectedNumber = selectedTarget?.number ?? null;
+
   return (
-    <div className={styles.mapShell}>
+    <div className={styles.mapShell} ref={mapShellRef}>
       <div className={styles.mapWrap} onMouseLeave={hidePanelImmediately}>
         <MapContainer
           bounds={bounds}
@@ -295,6 +369,14 @@ export default function WalkingActivitiesMap({
             groups={markerGroups}
             panel={panel}
             panelTimersRef={panelTimersRef}
+            selectedNumber={selectedNumber}
+            setPanel={setPanel}
+          />
+          <MapTargetController
+            clearHideTimer={clearHideTimer}
+            groups={markerGroups}
+            mapShellRef={mapShellRef}
+            selectedTarget={selectedTarget}
             setPanel={setPanel}
           />
         </MapContainer>
