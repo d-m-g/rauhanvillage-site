@@ -160,12 +160,19 @@ export const apartHotelTypes = [
 ];
 
 export const lux3Gallery = [
-  { src: "/assets/lux-3/01-lake-view.jpg", alt: "Lake view from the apartment balcony" },
-  { src: "/assets/lux-3/02-living-room.jpg", alt: "Living and seating area" },
-  { src: "/assets/lux-3/03-bedroom-1.jpg", alt: "Bedroom 1 with double bed" },
-  { src: "/assets/lux-3/04-bedroom-2.jpg", alt: "Bedroom 2 with single beds" },
-  { src: "/assets/lux-3/05-kitchen.jpg", alt: "Kitchen and dining area" },
-  { src: "/assets/lux-3/06-sauna-bathroom.jpg", alt: "Bathroom with sauna" },
+  { src: "/assets/lux-apart/3bedroom/01.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/03.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/04.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/05.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/06.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/11.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/16.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/img-7970.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/img-9307.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/img-9310.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/img-9313.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/img-9315.jpg", alt: "3-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/3bedroom/photo-2021-06-10-223756.jpg", alt: "3-bedroom luxury apartment" },
 ];
 
 export const lux3Intro = [
@@ -233,12 +240,14 @@ export const lux3RoomSpecColumns = [
 ];
 
 export const lux1Gallery = [
-  { src: "/assets/lux-1/01-lake-view.jpg", alt: "Lake view from the apartment balcony" },
-  { src: "/assets/lux-1/02-living-room.jpg", alt: "Living and seating area" },
-  { src: "/assets/lux-1/03-bedroom.jpg", alt: "Bedroom with double bed" },
-  { src: "/assets/lux-1/04-kitchen.jpg", alt: "Kitchen and dining area" },
-  { src: "/assets/lux-1/05-sauna-bathroom.jpg", alt: "Bathroom with sauna" },
-  { src: "/assets/lux-1/06-dining.jpg", alt: "Dining area" },
+  { src: "/assets/lux-apart/1bedroom/12.jpg", alt: "1-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/1bedroom/13.jpg", alt: "1-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/1bedroom/14.jpg", alt: "1-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/1bedroom/23.jpg", alt: "1-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/1bedroom/24.jpg", alt: "1-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/1bedroom/25.jpg", alt: "1-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/1bedroom/img-9316.jpg", alt: "1-bedroom luxury apartment" },
+  { src: "/assets/lux-apart/1bedroom/img-9318.jpg", alt: "1-bedroom luxury apartment" },
 ];
 
 export const lux1Intro = [
