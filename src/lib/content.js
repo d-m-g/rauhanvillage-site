@@ -52,12 +52,19 @@ export const hotelAboutRight = [
 ];
 
 export const apartHotelGallery = [
-  { src: "/assets/apartments/bedroom-1.jpg", alt: "Bedroom with twin beds" },
-  { src: "/assets/apartments/living-room.jpg", alt: "Living and dining area" },
-  { src: "/assets/apartments/bathroom.jpg", alt: "Bathroom with shower" },
-  { src: "/assets/apartments/bedroom-2.jpg", alt: "Second bedroom with bunk bed" },
-  { src: "/assets/apartments/kitchen.jpg", alt: "Fully equipped kitchen" },
-  { src: "/assets/apartments/dining.jpg", alt: "Dining area" },
+  { src: "/assets/photos/01-exterior-main.jpg", alt: "Front view of the hotel building" },
+  { src: "/assets/photos/02-exterior-side.jpg", alt: "Side view of the hotel building" },
+  { src: "/assets/photos/04-kitchen-dining.jpg", alt: "Kitchen and dining area" },
+  { src: "/assets/photos/05-surroundings.jpg", alt: "Forest surroundings around the hotel" },
+  { src: "/assets/photos/06-bedroom.jpg", alt: "Apartment bedroom" },
+  { src: "/assets/photos/07-terrace.jpg", alt: "Outdoor terrace" },
+  { src: "/assets/photos/08-courtyard.jpg", alt: "Hotel courtyard" },
+  { src: "/assets/photos/10-hotel-aerial.jpg", alt: "Aerial view of the hotel" },
+  { src: "/assets/photos/11-interior-cozy.jpg", alt: "Cozy apartment interior" },
+  { src: "/assets/photos/12-lake-saimaa.jpg", alt: "Lake Saimaa near the hotel" },
+  { src: "/assets/photos/13-summer-grounds.jpg", alt: "Hotel grounds in summer" },
+  { src: "/assets/photos/14-winter-view.jpg", alt: "Winter view of the hotel" },
+  { src: "/assets/photos/03-living-room.jpg", alt: "Apartment living room" },
 ];
 
 export const apartHotelIntro = [
@@ -338,6 +345,7 @@ export const apartments = [
 export const walkingDistanceActivities = [
   {
     title: "Rauhan Marinella Village",
+    image: "/assets/activities/cards/rauhan-marinella-village.jpg",
     description: "Our Hotel",
     distance: "On-site",
     address: "Vipelenpelto 7, 55320, Rauha",
@@ -347,6 +355,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Beach",
+    image: "/assets/activities/cards/beach.jpg",
     description: "Sandy beach",
     distance: "650 m",
     lat: 61.19628,
@@ -354,6 +363,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Angry Birds activity park",
+    image: "/assets/activities/cards/angry-birds-activity-park.jpg",
     description: "Indoor activity for children",
     distance: "650 m",
     lat: 61.19305,
@@ -361,6 +371,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Holiday Club Spa and Aquapark",
+    image: "/assets/activities/cards/holiday-club-spa-aquapark.jpg",
     description: "Aquapark and Spa",
     distance: "850 m",
     address: "Rauhanrinne 1, 55320 Rauha",
@@ -371,6 +382,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Tennis",
+    image: "/assets/activities/cards/tennis.jpg",
     description: "Open air tennis court",
     distance: "750 m",
     address: "Rauhanrinne 1, 55320 Rauha",
@@ -380,6 +392,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Robert's Cafe",
+    image: "/assets/activities/cards/roberts-cafe.jpg",
     description: "Cafe on the beach",
     distance: "800 m",
     note: "High season only",
@@ -388,6 +401,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "O'Learys",
+    image: "/assets/activities/cards/olearys.jpg",
     description: "Restaurant",
     distance: "850 m",
     address: "Rauhanrinne 1, 55320 Rauha",
@@ -397,6 +411,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Classic Pizza Saima",
+    image: "/assets/activities/cards/classic-pizza-saima.jpg",
     description: "Restaurant",
     distance: "850 m",
     address: "Rauhanrinne 1, 55320 Rauha",
@@ -406,6 +421,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Easy Kitchen",
+    image: "/assets/activities/cards/easy-kitchen.jpg",
     description: "Restaurant",
     distance: "850 m",
     address: "Rauhanrinne 1, 55320 Rauha",
@@ -415,6 +431,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Foot and bike routes",
+    image: "/assets/activities/cards/foot-and-bike-routes.jpg",
     description: "Routes in Rauha and Imatra",
     distance: "650 m",
     lat: 61.19602,
@@ -422,6 +439,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Bowling",
+    image: "/assets/activities/cards/bowling.jpg",
     description: "Bowling in Holiday Club Hotel",
     distance: "850 m",
     lat: 61.19264,
@@ -429,6 +447,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "R-kioski",
+    image: "/assets/activities/cards/r-kioski.jpg",
     description: "Small shop",
     distance: "850 m",
     address: "Rauhanrinne 1, 55320 Rauha",
@@ -437,6 +456,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Atreenalin Park",
+    image: "/assets/activities/cards/atreenalin-park.png",
     description: "Rope attraction park",
     distance: "1.2 km",
     address: "Tiuruniementie 84, 55320 Rauha",
@@ -446,6 +466,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Mini golf",
+    image: "/assets/activities/cards/mini-golf.jpg",
     description: "Mini golf",
     distance: "800 m",
     note: "High season only",
@@ -454,6 +475,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Gym",
+    image: "/assets/activities/cards/gym.jpg",
     description: "Gym",
     distance: "850 m",
     address: "Rauhanrinne 1, 55320 Rauha",
@@ -463,6 +485,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Bike rental",
+    image: "/assets/activities/cards/bike-rental.jpg",
     description: "Donkey bike rental",
     distance: "800 m",
     lat: 61.19221,
@@ -470,6 +493,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Electro Scooter rental",
+    image: "/assets/activities/cards/electro-scooter-rental.jpg",
     description: "jOe scooter rental",
     distance: "800 m",
     lat: 61.19221,
@@ -477,6 +501,7 @@ export const walkingDistanceActivities = [
   },
   {
     title: "Beach House",
+    image: "/assets/activities/cards/beach-house.jpg",
     description: "Equipment rental",
     distance: "800 m",
     phone: "+358 50 3778895",
@@ -646,9 +671,9 @@ export const hotelStats = [
 
 export const photoFeatures = [
   {
-    src: "/assets/photos/09-hotel-forest.jpg",
-    alt: "Rauhan Marinella Village exterior surrounded by Finnish forest",
-    caption: "The hotel & forest",
+    src: "/assets/photos/01-exterior-main.jpg",
+    alt: "Front view of Rauhan Marinella Village",
+    caption: "The hotel exterior",
   },
   {
     src: "/assets/photos/10-hotel-aerial.jpg",

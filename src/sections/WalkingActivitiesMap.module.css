@@ -33,6 +33,19 @@
   font-size: 0.82rem;
   font-weight: 700;
   line-height: 1;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.markerBadgeActive {
+  background: var(--color-accent-dark);
+  box-shadow:
+    0 0 0 5px rgba(0, 107, 195, 0.18),
+    0 8px 20px rgba(0, 107, 195, 0.38);
+  transform: scale(1.18);
 }
 
 .markerBadgeGroup {
