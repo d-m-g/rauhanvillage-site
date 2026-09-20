@@ -1,5 +1,6 @@
 .gallery {
   --slide-aspect: 4 / 3;
+  --slide-gap: var(--space-3);
   --ease-smooth: cubic-bezier(0.33, 1, 0.68, 1);
   width: 100%;
   max-width: 100%;
@@ -23,7 +24,7 @@
 
 .track {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--slide-gap);
   width: calc(100% * var(--total) / var(--visible));
   max-width: none;
   will-change: transform;
@@ -84,7 +85,7 @@
 
 .slide {
   position: relative;
-  flex: 0 0 calc((100% - (var(--total) - 1) * var(--space-3)) / var(--total));
+  flex: 0 0 calc((100% - (var(--total) - 1) * var(--slide-gap)) / var(--total));
   aspect-ratio: var(--slide-aspect);
   height: auto;
   overflow: visible;
@@ -106,10 +107,13 @@
     visibility 0s linear var(--scroll-ms, 1100ms);
 }
 
-.slide:hover {
-  transform: scale(var(--hover-scale, 1.36));
-  z-index: 10;
-  box-shadow: 0 20px 48px rgba(0, 107, 195, 0.22);
+/* Touch devices keep :hover stuck after a tap, so only scale on real pointers. */
+@media (hover: hover) {
+  .slide:hover {
+    transform: scale(var(--hover-scale, 1.36));
+    z-index: 10;
+    box-shadow: 0 20px 48px rgba(0, 107, 195, 0.22);
+  }
 }
 
 .slideImage {
@@ -164,6 +168,43 @@
 
   .arrowNext {
     right: 0.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  /* One slide at a time: gapless keeps each slide exactly one viewport wide. */
+  .gallery {
+    --slide-gap: 0px;
+  }
+
+  /* No room to reserve for the hover pop-out. */
+  .viewport {
+    padding: 0;
+  }
+
+  .arrowButton {
+    top: 50%;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .arrowPrevious {
+    left: 0.5rem;
+  }
+
+  .arrowNext {
+    right: 0.5rem;
+  }
+
+  .dot {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+
+  .dots {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: var(--space-3);
   }
 }
 

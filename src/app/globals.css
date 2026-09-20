@@ -88,6 +88,30 @@ select {
   font: inherit;
 }
 
+/* iOS Safari zooms the page when a focused field is under 16px. */
+@media (max-width: 767px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
 #__next {
   isolation: isolate;
+}
+
+/* Gutters shrink with the viewport: 10rem of side margin on a phone left
+   content (and gallery images) tiny. */
+@media (max-width: 1199px) {
+  :root {
+    --page-gutter: 5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --page-gutter: 2rem;
+    --page-gutter-sm: 2rem;
+  }
 }

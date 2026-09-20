@@ -7,13 +7,38 @@ import styles from "./ApartHotelGallery.module.css";
 const AUTO_INTERVAL = 5500;
 const SCROLL_MS = 1100;
 const VISIBLE = 4;
+// Narrow screens fit fewer slides; 4 on a phone shrank each photo to ~40px.
+const VISIBLE_BREAKPOINTS = [
+  ["(max-width: 640px)", 1],
+  ["(max-width: 1024px)", 2],
+];
 const SLIDE_WIDTH = 320;
 const SLIDE_HEIGHT = 240;
 const HOVER_SCALE = 1.36;
 
-function isSlideVisible(slideIndex, currentIndex) {
+function isSlideVisible(slideIndex, currentIndex, visible) {
   const offset = slideIndex - currentIndex;
-  return offset >= 0 && offset < VISIBLE;
+  return offset >= 0 && offset < visible;
+}
+
+function useVisibleCount() {
+  const [visible, setVisible] = useState(VISIBLE);
+
+  useEffect(() => {
+    const queries = VISIBLE_BREAKPOINTS.map(([query, count]) => [
+      window.matchMedia(query),
+      count,
+    ]);
+    const update = () =>
+      setVisible(queries.find(([mql]) => mql.matches)?.[1] ?? VISIBLE);
+
+    update();
+    queries.forEach(([mql]) => mql.addEventListener("change", update));
+    return () =>
+      queries.forEach(([mql]) => mql.removeEventListener("change", update));
+  }, []);
+
+  return visible;
 }
 
 export default function ApartHotelGallery({ images }) {
@@ -23,6 +48,7 @@ export default function ApartHotelGallery({ images }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
+  const visible = useVisibleCount();
   const total = images.length;
   const loopedImages = total > 0 ? [...images, ...images] : [];
   const loopedTotal = loopedImages.length;
@@ -158,7 +184,7 @@ export default function ApartHotelGallery({ images }) {
       onMouseLeave={() => setPaused(false)}
       style={{
         "--total": loopedTotal,
-        "--visible": VISIBLE,
+        "--visible": visible,
         "--hover-scale": HOVER_SCALE,
         "--scroll-ms": `${SCROLL_MS}ms`,
       }}
@@ -182,17 +208,19 @@ export default function ApartHotelGallery({ images }) {
         >
           {loopedImages.map((image, slideIndex) => (
             <div
-              aria-hidden={slideIndex >= total || !isSlideVisible(slideIndex, index)}
+              aria-hidden={
+                slideIndex >= total || !isSlideVisible(slideIndex, index, visible)
+              }
               className={styles.slide}
-              data-visible={isSlideVisible(slideIndex, index)}
+              data-visible={isSlideVisible(slideIndex, index, visible)}
               key={`${image.src}-${slideIndex}`}
             >
               <Image
                 alt={slideIndex < total ? image.alt : ""}
                 className={styles.slideImage}
                 height={SLIDE_HEIGHT}
-                priority={slideIndex < VISIBLE}
-                sizes={`(max-width: 1120px) 25vw, ${SLIDE_WIDTH}px`}
+                priority={slideIndex < visible}
+                sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${SLIDE_WIDTH}px`}
                 src={image.src}
                 width={SLIDE_WIDTH}
               />

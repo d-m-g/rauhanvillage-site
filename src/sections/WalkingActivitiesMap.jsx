@@ -393,7 +393,8 @@ export default function WalkingActivitiesMap({
         ) : null}
       </div>
       <p className={styles.caption}>
-        Hover a marker for name and distance. Click to jump to the activity card.
+        Tap or hover a marker for name and distance, then tap to jump to the
+        activity card.
         Map data &copy; OpenStreetMap contributors.
       </p>
     </div>

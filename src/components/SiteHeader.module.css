@@ -293,75 +293,179 @@
   }
 }
 
-@media (max-width: 720px) {
+/* Shown only on mobile, where the full header collapses behind it. */
+.menuToggle {
+  display: none;
+  grid-row: 1;
+  grid-column: 2;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.menuIcon,
+.menuIcon::before,
+.menuIcon::after {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: "";
+  position: absolute;
+}
+
+.menuIcon::before {
+  transform: translateY(-0.4rem);
+}
+
+.menuIcon::after {
+  transform: translateY(0.4rem);
+}
+
+.headerGrid[data-open="true"] .menuIcon {
+  background: transparent;
+}
+
+.headerGrid[data-open="true"] .menuIcon::before {
+  transform: rotate(45deg);
+}
+
+.headerGrid[data-open="true"] .menuIcon::after {
+  transform: rotate(-45deg);
+}
+
+.brandWrapText {
+  display: none;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-accent-dark);
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 900px) {
   .headerGrid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: var(--space-3);
+    row-gap: var(--space-3);
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
   }
 
   .brandWrap {
     grid-row: 1;
     grid-column: 1;
+    justify-content: flex-start;
+    gap: var(--space-2);
     align-self: auto;
     padding-right: 0;
     border-right: none;
-    border-bottom: 1px solid var(--color-line);
-    padding-bottom: var(--space-2);
+    min-width: 0;
+  }
+
+  .brandWrapText {
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .brandLogo {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .menuToggle {
+    display: grid;
+    position: relative;
+  }
+
+  /* Everything below the logo row is the collapsible panel. */
+  .topBar,
+  .cta,
+  .bottomRow {
+    grid-column: 1 / -1;
+  }
+
+  /* Book a Room stays visible; contacts and nav collapse behind the toggle. */
+  .headerGrid:not([data-open="true"]) .topBar,
+  .headerGrid:not([data-open="true"]) .bottomRow {
+    display: none;
   }
 
   .topBar {
-    grid-row: 2;
-    grid-column: 1;
+    grid-row: 3;
     grid-template-columns: 1fr;
     gap: var(--space-1);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-line);
+    border-bottom: none;
   }
 
   .infoItemStart,
   .infoItemCenter,
   .infoItemEnd {
     justify-content: flex-start;
+    min-height: 2.5rem;
+  }
+
+  .infoText {
+    font-size: 0.9rem;
   }
 
   .cta {
-    grid-row: 3;
-    grid-column: 1;
+    grid-row: 2;
     align-self: auto;
     height: auto;
-    min-height: 2.4rem !important;
+    min-height: 2.75rem !important;
     border-left: none;
     margin-left: 0;
-    padding-left: 1.25rem !important;
+    padding-inline: 1.25rem !important;
+    font-size: 0.78rem !important;
     width: 100%;
   }
 
   .bottomRow {
     grid-row: 4;
-    grid-column: 1;
     flex-direction: column;
     align-items: stretch;
-    gap: var(--space-2);
+    gap: 0;
+    padding-bottom: var(--space-2);
   }
 
   .brand {
-    justify-content: center;
-    padding: 0.45rem 0.65rem;
-    font-size: 0.9rem;
+    display: none;
   }
 
   .nav {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-right: 0;
+    border-top: 1px solid var(--color-line);
   }
 
   .link {
     flex: 0 0 auto;
-    padding: 0.45rem 0.65rem;
-    font-size: 0.85rem;
+    justify-content: flex-start;
+    min-height: 2.75rem;
+    padding: 0.7rem 0.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    text-align: left;
   }
 }

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import Button from "./Button";
 import Container from "./Container";
 import styles from "./SiteHeader.module.css";
@@ -19,6 +20,10 @@ const navItems = [
 
 export default function SiteHeader() {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // The mobile panel stays open across a client-side navigation otherwise.
+  useEffect(() => setMenuOpen(false), [pathname]);
 
   function isActive(href) {
     if (href === "/") {
@@ -32,7 +37,7 @@ export default function SiteHeader() {
 
   return (
     <header className={styles.header}>
-      <Container className={styles.headerGrid}>
+      <Container className={styles.headerGrid} data-open={menuOpen}>
         <Link
           className={styles.brandWrap}
           data-active={pathname === "/"}
@@ -46,9 +51,21 @@ export default function SiteHeader() {
             className={styles.brandLogo}
             priority
           />
+          <span className={styles.brandWrapText}>Rauhan Village</span>
         </Link>
 
-        <div className={styles.topBar}>
+        <button
+          aria-controls="site-menu"
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          className={styles.menuToggle}
+          onClick={() => setMenuOpen((open) => !open)}
+          type="button"
+        >
+          <span aria-hidden="true" className={styles.menuIcon} />
+        </button>
+
+        <div className={styles.topBar} id="site-menu">
           <a
             className={`${styles.infoItem} ${styles.infoItemStart}`}
             href="https://maps.google.com/?q=Vipelenpelto+7+Rauha+55320+Finland"
