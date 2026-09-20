@@ -239,6 +239,11 @@ export const lux3RoomSpecColumns = [
   ],
 ];
 
+// Lux 4 placeholder: real photos and copy land later, Lux 3 content until then.
+export const lux4Gallery = lux3Gallery;
+export const lux4Intro = lux3Intro;
+export const lux4RoomSpecColumns = lux3RoomSpecColumns;
+
 export const lux1Gallery = [
   { src: "/assets/lux-apart/1bedroom/12.jpg", alt: "1-bedroom luxury apartment" },
   { src: "/assets/lux-apart/1bedroom/13.jpg", alt: "1-bedroom luxury apartment" },
@@ -320,6 +325,20 @@ export const apartments = [
     ctaLabel: "Enquire about availability",
     ctaHref: "/contact",
     href: "/apartments",
+  },
+  {
+    title: "Lux Apartments 4",
+    description:
+      "Our largest Lux apartment — a four-bedroom layout with sauna and lake-view balcony, suited to bigger families and groups.",
+    features: [
+      "4 bedrooms with premium bedding",
+      "Upgraded kitchen appliances",
+      "Private sauna and balcony",
+      "Private entrance and terrace access",
+    ],
+    ctaLabel: "See Lux 4 details",
+    ctaHref: "/apartments/lux-4",
+    href: "/apartments/lux-4",
   },
   {
     title: "Lux Apartments 3",

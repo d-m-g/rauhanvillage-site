@@ -10,6 +10,7 @@ import styles from "./SiteHeader.module.css";
 
 const navItems = [
   { href: "/apartments", label: "Apart-Hotel" },
+  { href: "/apartments/lux-4", label: "Lux Apartments 4" },
   { href: "/apartments/lux-3", label: "Lux Apartments 3" },
   { href: "/apartments/lux-1", label: "Lux Apartments 1" },
   { href: "/activities", label: "Activities" },
